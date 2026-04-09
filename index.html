@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Roman Emmons — Backend Engineer</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --cream: #F5F2EB; --ink: #1A1814; --ink-muted: #6B6860; --ink-faint: #B0ADA6;
+    --accent: #2D5A3D; --accent-light: #E8F0EA; --accent-mid: #4A8560;
+    --warm: #C17D3C; --warm-light: #F5EDE0;
+    --border: rgba(26,24,20,0.12); --border-strong: rgba(26,24,20,0.25);
+    --mono: 'DM Mono', monospace; --serif: 'Fraunces', serif;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--mono); background: var(--cream); color: var(--ink); min-height: 100vh; font-size: 14px; line-height: 1.6; }
+
+  nav { position: sticky; top: 0; z-index: 100; background: var(--cream); border-bottom: 1px solid var(--border); padding: 0 2.5rem; display: flex; align-items: center; justify-content: space-between; height: 52px; }
+  .nav-logo { font-family: var(--serif); font-size: 18px; font-weight: 300; font-style: italic; color: var(--ink); text-decoration: none; letter-spacing: -0.02em; }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a { color: var(--ink-muted); text-decoration: none; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--ink); }
+
+  .hero { padding: 5rem 2.5rem 4rem; max-width: 900px; margin: 0 auto; }
+  .hero-label { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent-mid); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.5rem; }
+  .hero-label::before { content: ''; display: inline-block; width: 20px; height: 1px; background: var(--accent-mid); }
+  h1 { font-family: var(--serif); font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 300; line-height: 1.1; letter-spacing: -0.03em; color: var(--ink); margin-bottom: 1.5rem; }
+  h1 em { font-style: italic; color: var(--accent); }
+  .hero-bio { font-size: 15px; line-height: 1.8; color: var(--ink-muted); max-width: 560px; margin-bottom: 2.5rem; }
+  .hero-links { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.6rem 1.2rem; font-family: var(--mono); font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; border-radius: 2px; text-decoration: none; transition: all 0.2s; cursor: pointer; border: none; }
+  .btn-primary { background: var(--ink); color: var(--cream); }
+  .btn-primary:hover { background: var(--accent); }
+  .btn-secondary { background: transparent; color: var(--ink); border: 1px solid var(--border-strong); }
+  .btn-secondary:hover { border-color: var(--ink); background: rgba(26,24,20,0.04); }
+
+  .section-divider { border: none; border-top: 1px solid var(--border); margin: 0 2.5rem; }
+  section { max-width: 900px; margin: 0 auto; padding: 4rem 2.5rem; }
+  .section-header { display: flex; align-items: baseline; gap: 1rem; margin-bottom: 3rem; }
+  .section-num { font-size: 11px; color: var(--ink-faint); letter-spacing: 0.1em; font-style: italic; }
+  h2 { font-family: var(--serif); font-size: 1.6rem; font-weight: 300; letter-spacing: -0.02em; color: var(--ink); }
+
+  .projects-grid { display: grid; gap: 1.5px; border: 1.5px solid var(--border-strong); border-radius: 4px; overflow: hidden; }
+  .project-card { background: white; padding: 2rem 2rem 1.75rem; position: relative; transition: background 0.2s; }
+  .project-card:hover { background: var(--accent-light); }
+  .project-card + .project-card { border-top: 1.5px solid var(--border-strong); }
+  .project-card.featured { background: #f8faf8; }
+  .project-card.featured:hover { background: var(--accent-light); }
+
+  .featured-badge { display: inline-flex; align-items: center; gap: 0.35rem; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); background: var(--accent-light); border: 1px solid rgba(45,90,61,0.2); border-radius: 2px; padding: 0.15rem 0.5rem; margin-bottom: 0.75rem; }
+  .featured-badge::before { content: ''; display: inline-block; width: 5px; height: 5px; border-radius: 50%; background: var(--accent-mid); }
+
+  .project-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.75rem; }
+  .project-name { font-family: var(--serif); font-size: 1.25rem; font-weight: 300; font-style: italic; color: var(--ink); letter-spacing: -0.02em; }
+  .project-link { font-size: 11px; color: var(--accent-mid); text-decoration: none; letter-spacing: 0.06em; text-transform: uppercase; display: flex; align-items: center; gap: 0.3rem; opacity: 0; transition: opacity 0.2s; }
+  .project-card:hover .project-link { opacity: 1; }
+  .project-desc { font-size: 13.5px; color: var(--ink-muted); line-height: 1.75; margin-bottom: 1.25rem; max-width: 620px; }
+  .project-highlights { margin-bottom: 1.25rem; padding-left: 0; list-style: none; }
+  .project-highlights li { font-size: 12.5px; color: var(--ink-muted); padding: 0.2rem 0; padding-left: 1.25rem; position: relative; }
+  .project-highlights li::before { content: '→'; position: absolute; left: 0; color: var(--accent-mid); font-size: 11px; }
+  .project-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+  .tag { font-size: 10.5px; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.2rem 0.5rem; border-radius: 2px; background: var(--cream); color: var(--ink-muted); border: 1px solid var(--border); }
+  .tag-accent { background: var(--accent-light); color: var(--accent); border-color: rgba(45,90,61,0.2); }
+  .tag-warm { background: var(--warm-light); color: #7a4e1e; border-color: rgba(193,125,60,0.25); }
+
+  .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1px; border: 1px solid var(--border-strong); border-radius: 4px; overflow: hidden; }
+  .skill-group { background: white; padding: 1.5rem; }
+  .skill-group-label { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 0.75rem; }
+  .skill-list { list-style: none; display: flex; flex-direction: column; gap: 0.3rem; }
+  .skill-list li { font-size: 13px; color: var(--ink-muted); }
+
+  .contact-row { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .contact-item { display: flex; align-items: center; gap: 0.5rem; font-size: 13px; color: var(--ink-muted); text-decoration: none; padding: 0.5rem 1rem; border: 1px solid var(--border); border-radius: 2px; background: white; transition: all 0.2s; }
+  .contact-item:hover { border-color: var(--accent); color: var(--accent); }
+  .contact-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent-mid); flex-shrink: 0; }
+
+  footer { border-top: 1px solid var(--border); padding: 1.5rem 2.5rem; display: flex; justify-content: space-between; align-items: center; }
+  .footer-text { font-size: 11px; color: var(--ink-faint); letter-spacing: 0.05em; }
+  .status-dot { display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: #4A8560; margin-right: 0.4rem; animation: pulse 2s ease-in-out infinite; }
+  @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">Roman Emmons</a>
+  <ul class="nav-links">
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="hero">
+  <p class="hero-label">Backend Engineer · San Francisco</p>
+  <h1>Building systems<br>that <em>quietly</em> work.</h1>
+  <p class="hero-bio">
+    I design and build backends that handle real-world complexity — data pipelines, file processing, ERP integrations, and external APIs — with clean architecture and attention to how pieces fit together. I've shipped production systems on AWS and built collaborative software with small engineering teams.
+  </p>
+  <div class="hero-links">
+    <a href="https://github.com/RomanEmmons" class="btn btn-primary" target="_blank">GitHub ↗</a>
+    <a href="https://www.linkedin.com/in/roman-emmons/" class="btn btn-secondary" target="_blank">LinkedIn ↗</a>
+    <a href="#projects" class="btn btn-secondary">View work</a>
+  </div>
+</div>
+
+<hr class="section-divider">
+
+<section id="projects">
+  <div class="section-header">
+    <span class="section-num">01</span>
+    <h2>Selected projects</h2>
+  </div>
+
+  <div class="projects-grid">
+
+    <div class="project-card featured">
+      <div class="featured-badge">Flagship project</div>
+      <div class="project-top">
+        <span class="project-name">Cacheflow</span>
+        <a href="https://github.com/RomanEmmons/Cacheflow" class="project-link" target="_blank">View repo ↗</a>
+      </div>
+      <p class="project-desc">
+        An accounting process automation platform that eliminates manual data entry. Users upload Excel spreadsheets or PDFs containing financial data — Cacheflow parses the files, extracts structured records, and automatically populates them into the company's ERP system.
+      </p>
+      <ul class="project-highlights">
+        <li>Built a file ingestion pipeline that handles both Excel and PDF formats, parses their contents, and transforms raw data into ERP-ready records</li>
+        <li>Designed the full backend in TypeScript — strict typing ensures data integrity throughout the pipeline before it touches the ERP</li>
+        <li>Deployed to AWS with CodeDeploy across dedicated QA and production environments — proper release workflow with staged rollouts</li>
+        <li>Used PM2 for production process management, ensuring uptime and automatic crash recovery</li>
+        <li>Structured as a Yarn monorepo with separate backend and frontend workspaces, built and maintained with a team across 316 commits</li>
+      </ul>
+      <div class="project-tags">
+        <span class="tag tag-accent">TypeScript</span>
+        <span class="tag tag-accent">ETL / File Ingestion</span>
+        <span class="tag tag-accent">ERP Integration</span>
+        <span class="tag tag-warm">AWS CodeDeploy</span>
+        <span class="tag tag-warm">PM2</span>
+        <span class="tag">Excel / PDF Parsing</span>
+        <span class="tag">Monorepo</span>
+        <span class="tag">Yarn Workspaces</span>
+        <span class="tag">Team Project</span>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-top">
+        <span class="project-name">Chonky Cat</span>
+        <a href="https://github.com/RomanEmmons/chonky-cat" class="project-link" target="_blank">View repo ↗</a>
+      </div>
+      <p class="project-desc">
+        A location-based app that lets users find overweight cats available for adoption near them by zip code. Built with a full MVC backend, database seeding from scraped data, and a React frontend.
+      </p>
+      <ul class="project-highlights">
+        <li>Architected a layered backend — controllers, server, database, and seed pipeline — keeping concerns cleanly separated</li>
+        <li>Built a custom scraper to pull and normalize external data into a local database</li>
+        <li>Integrated zip code-based location filtering backed by a TSQL dataset</li>
+        <li>42 commits and 19 pull requests — shows sustained, collaborative development process</li>
+      </ul>
+      <div class="project-tags">
+        <span class="tag tag-accent">Node.js</span>
+        <span class="tag tag-accent">Express</span>
+        <span class="tag tag-accent">MongoDB</span>
+        <span class="tag">React</span>
+        <span class="tag">Web Scraping</span>
+        <span class="tag">MVC Architecture</span>
+        <span class="tag">TSQL</span>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-top">
+        <span class="project-name">RepoRetriever</span>
+        <a href="https://github.com/RomanEmmons/RepoRetriever" class="project-link" target="_blank">View repo ↗</a>
+      </div>
+      <p class="project-desc">
+        A tool that hits the GitHub API to fetch, rank, and display a user's top 25 repositories by star count — then persists results to MongoDB for future reference without re-fetching.
+      </p>
+      <ul class="project-highlights">
+        <li>Integrated the GitHub REST API with proper request handling and data transformation</li>
+        <li>Designed a caching layer using MongoDB to avoid redundant API calls on repeat lookups</li>
+        <li>Separated concerns across client, server, database, and helpers directories</li>
+        <li>13 pull requests showing iterative development and code review workflow</li>
+      </ul>
+      <div class="project-tags">
+        <span class="tag tag-accent">Node.js</span>
+        <span class="tag tag-accent">MongoDB</span>
+        <span class="tag tag-accent">GitHub API</span>
+        <span class="tag">REST</span>
+        <span class="tag">Webpack</span>
+        <span class="tag">Caching</span>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-top">
+        <span class="project-name">Molly Souza — Artist Portfolio</span>
+        <a href="https://github.com/RomanEmmons/Molly-Souza-Artist-Portfolio" class="project-link" target="_blank">View repo ↗</a>
+      </div>
+      <p class="project-desc">
+        A production site built for a real client — an artist needing a clean, professional web presence to showcase her work.
+      </p>
+      <ul class="project-highlights">
+        <li>Shipped a real deliverable for an actual client, not a toy project</li>
+        <li>Handled requirements gathering, design decisions, and deployment end-to-end</li>
+      </ul>
+      <div class="project-tags">
+        <span class="tag tag-accent">JavaScript</span>
+        <span class="tag">Client Work</span>
+        <span class="tag">End-to-End Delivery</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<section id="skills">
+  <div class="section-header">
+    <span class="section-num">02</span>
+    <h2>Technical skills</h2>
+  </div>
+  <div class="skills-grid">
+    <div class="skill-group">
+      <p class="skill-group-label">Languages</p>
+      <ul class="skill-list">
+        <li>TypeScript</li>
+        <li>JavaScript (ES6+)</li>
+        <li>SQL / TSQL</li>
+        <li>HTML / CSS</li>
+      </ul>
+    </div>
+    <div class="skill-group">
+      <p class="skill-group-label">Backend</p>
+      <ul class="skill-list">
+        <li>Node.js</li>
+        <li>Express</li>
+        <li>REST APIs</li>
+        <li>ETL / Data pipelines</li>
+        <li>File parsing (Excel, PDF)</li>
+        <li>Web scraping</li>
+      </ul>
+    </div>
+    <div class="skill-group">
+      <p class="skill-group-label">Data & infra</p>
+      <ul class="skill-list">
+        <li>MongoDB</li>
+        <li>AWS CodeDeploy</li>
+        <li>PM2</li>
+        <li>ERP integration</li>
+        <li>Database design</li>
+      </ul>
+    </div>
+    <div class="skill-group">
+      <p class="skill-group-label">Workflow</p>
+      <ul class="skill-list">
+        <li>Git / GitHub</li>
+        <li>Yarn Workspaces</li>
+        <li>Webpack</li>
+        <li>MVC architecture</li>
+        <li>Pull request review</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<section id="contact">
+  <div class="section-header">
+    <span class="section-num">03</span>
+    <h2>Get in touch</h2>
+  </div>
+  <p style="color: var(--ink-muted); font-size: 13.5px; margin-bottom: 1.5rem; max-width: 480px; line-height: 1.8;">
+    I'm currently open to backend engineering roles. If you're building something interesting, I'd love to hear about it.
+  </p>
+  <div class="contact-row">
+    <a href="mailto:roman.emmons@gmail.com" class="contact-item">
+      <span class="contact-dot"></span>
+      roman.emmons@gmail.com
+    </a>
+    <a href="https://github.com/RomanEmmons" class="contact-item" target="_blank">
+      <span class="contact-dot"></span>
+      github.com/RomanEmmons
+    </a>
+    <a href="https://www.linkedin.com/in/roman-emmons/" class="contact-item" target="_blank">
+      <span class="contact-dot"></span>
+      linkedin.com/in/roman-emmons
+    </a>
+  </div>
+</section>
+
+<footer>
+  <span class="footer-text">Roman Emmons · Backend Engineer · San Francisco</span>
+  <span class="footer-text"><span class="status-dot"></span>Open to opportunities</span>
+</footer>
+
+</body>
+</html>
