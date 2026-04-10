@@ -5,38 +5,22 @@
       <stop offset="50%" stop-color="#7c8cff"/>
       <stop offset="100%" stop-color="#b983ff"/>
     </linearGradient>
-    <filter id="glow">
-      <feGaussianBlur stdDeviation="1.6" result="blur"/>
-      <feMerge>
-        <feMergeNode in="blur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
-    </filter>
   </defs>
 
-  <rect width="64" height="64" rx="16" fill="#0a0f1f"/>
+  <rect width="64" height="64" rx="14" fill="#0a0f1f"/>
 
-  <!-- R (shifted left slightly more) -->
   <path
-    d="M10 14 H26
-       Q38 14 38 25
-       Q38 34 26 35
-       L38 50
-       H28
-       L20 36
-       H16 V50
-       H10 Z
-       M16 20 V30 H26
-       Q32 30 32 25
-       Q32 20 26 20 Z"
+    d="M18 14 H32
+       Q42 14 42 24
+       Q42 33 32 34
+       L42 50
+       H34
+       L27 36
+       H24 V50
+       H18 Z
+       M24 20 V30 H31
+       Q36 30 36 25
+       Q36 20 31 20 Z"
     fill="url(#g)"
-    filter="url(#glow)"
-  />
-
-  <!-- E (shifted left so it fits inside canvas) -->
-  <path
-    d="M40 14 H60 V21 H48 V28 H58 V35 H48 V43 H60 V50 H40 Z"
-    fill="url(#g)"
-    filter="url(#glow)"
   />
 </svg>
