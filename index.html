@@ -3,34 +3,40 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Roman Emmons — Backend Engineer</title>
+  <title>Roman Emmons — Backend / Platform Engineer</title>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg: #0a0f1f;
-      --bg-soft: #11182d;
-      --panel: rgba(18, 26, 48, 0.84);
-      --panel-strong: #10182b;
-      --text: #eef2ff;
-      --muted: #a7b0d3;
-      --faint: #6d77a0;
-      --border: rgba(140, 163, 255, 0.14);
-      --border-strong: rgba(125, 149, 255, 0.28);
+      --bg: #07111f;
+      --bg-soft: #0d1729;
+      --panel: rgba(12, 22, 40, 0.88);
+      --panel-strong: rgba(14, 26, 48, 0.98);
+      --panel-alt: rgba(20, 33, 58, 0.92);
 
-      --cyan: #66e3ff;
-      --blue: #7c8cff;
-      --violet: #b983ff;
-      --lime: #8effb5;
-      --pink: #ff8fd8;
-      --glow: 0 0 40px rgba(124, 140, 255, 0.18);
+      --text: #eef4ff;
+      --muted: #a9b8d8;
+      --faint: #6d7ea6;
+
+      --border: rgba(140, 163, 255, 0.14);
+      --border-strong: rgba(136, 160, 255, 0.3);
+
+      --cyan: #69e3ff;
+      --blue: #7f8dff;
+      --violet: #b78fff;
+      --lime: #90ffb8;
+      --pink: #ff93d8;
+      --amber: #ffcf7b;
+
+      --glow: 0 0 40px rgba(127, 141, 255, 0.15);
 
       --mono: 'DM Mono', monospace;
       --sans: 'Space Grotesk', sans-serif;
-      --radius: 20px;
-      --radius-sm: 14px;
-      --max: 1120px;
+
+      --radius: 22px;
+      --radius-sm: 16px;
+      --max: 1160px;
     }
 
     html { scroll-behavior: smooth; }
@@ -38,9 +44,9 @@
     body {
       font-family: var(--mono);
       background:
-        radial-gradient(circle at top left, rgba(102, 227, 255, 0.12), transparent 28%),
-        radial-gradient(circle at top right, rgba(185, 131, 255, 0.12), transparent 30%),
-        radial-gradient(circle at 50% 120%, rgba(142, 255, 181, 0.08), transparent 40%),
+        radial-gradient(circle at top left, rgba(105, 227, 255, 0.12), transparent 28%),
+        radial-gradient(circle at top right, rgba(183, 143, 255, 0.14), transparent 34%),
+        radial-gradient(circle at bottom center, rgba(144, 255, 184, 0.08), transparent 36%),
         var(--bg);
       color: var(--text);
       min-height: 100vh;
@@ -54,11 +60,11 @@
       inset: 0;
       pointer-events: none;
       background-image:
-        linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+        linear-gradient(rgba(255,255,255,0.022) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.022) 1px, transparent 1px);
       background-size: 34px 34px;
       mask-image: radial-gradient(circle at center, black 40%, transparent 85%);
-      opacity: 0.4;
+      opacity: 0.45;
     }
 
     a { color: inherit; }
@@ -66,7 +72,7 @@
     .shell {
       max-width: var(--max);
       margin: 0 auto;
-      padding: 0 24px 60px;
+      padding: 0 24px 72px;
       position: relative;
       z-index: 1;
     }
@@ -76,7 +82,7 @@
       top: 0;
       z-index: 100;
       backdrop-filter: blur(16px);
-      background: rgba(10, 15, 31, 0.72);
+      background: rgba(7, 17, 31, 0.78);
       border-bottom: 1px solid var(--border);
     }
 
@@ -88,33 +94,33 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: 16px;
     }
 
     .nav-logo {
       font-family: var(--sans);
-      font-size: 1.4rem;
+      font-size: 1.45rem;
       font-weight: 700;
       text-decoration: none;
       letter-spacing: -0.05em;
       color: var(--text);
       line-height: 1;
-      text-shadow: 0 0 18px rgba(124, 140, 255, 0.2);
+      text-shadow: 0 0 18px rgba(127, 141, 255, 0.24);
+      white-space: nowrap;
     }
 
-    .nav-logo span {
-      color: var(--cyan);
-    }
+    .nav-logo span { color: var(--cyan); }
 
     @media (min-width: 900px) {
-      .nav-logo {
-        font-size: 1.7rem;
-      }
+      .nav-logo { font-size: 1.75rem; }
     }
 
     .nav-links {
       display: flex;
       list-style: none;
-      gap: 1.25rem;
+      gap: 1.15rem;
+      flex-wrap: wrap;
+      justify-content: flex-end;
     }
 
     .nav-links a {
@@ -133,14 +139,15 @@
 
     .hero {
       display: grid;
-      grid-template-columns: 1.4fr 0.9fr;
-      gap: 28px;
-      padding: 56px 0 36px;
+      grid-template-columns: 1.35fr 0.95fr;
+      gap: 24px;
+      padding: 56px 0 20px;
       align-items: stretch;
     }
 
     .hero-main,
     .hero-side,
+    .case-study-card,
     .project-card,
     .skill-group,
     .contact-panel {
@@ -160,45 +167,47 @@
     .hero-main::after {
       content: "";
       position: absolute;
-      width: 280px;
-      height: 280px;
-      top: -60px;
-      right: -60px;
-      background: radial-gradient(circle, rgba(124, 140, 255, 0.22), transparent 70%);
+      width: 320px;
+      height: 320px;
+      top: -76px;
+      right: -90px;
+      background: radial-gradient(circle, rgba(127, 141, 255, 0.22), transparent 70%);
       pointer-events: none;
     }
 
-    .hero-label {
+    .hero-label,
+    .eyebrow {
       display: inline-flex;
       align-items: center;
       gap: 0.55rem;
       padding: 8px 12px;
       border-radius: 999px;
-      background: rgba(102, 227, 255, 0.08);
-      border: 1px solid rgba(102, 227, 255, 0.18);
+      background: rgba(105, 227, 255, 0.08);
+      border: 1px solid rgba(105, 227, 255, 0.18);
       color: var(--cyan);
       font-size: 11px;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      margin-bottom: 20px;
+      margin-bottom: 18px;
     }
 
-    .hero-label::before {
+    .hero-label::before,
+    .eyebrow::before {
       content: "";
       width: 8px;
       height: 8px;
       border-radius: 50%;
       background: var(--lime);
-      box-shadow: 0 0 16px rgba(142, 255, 181, 0.8);
+      box-shadow: 0 0 16px rgba(144, 255, 184, 0.8);
     }
 
     h1 {
       font-family: var(--sans);
-      font-size: clamp(2.8rem, 6vw, 5.5rem);
+      font-size: clamp(2.95rem, 6vw, 5.75rem);
       line-height: 0.95;
-      letter-spacing: -0.06em;
+      letter-spacing: -0.065em;
       margin-bottom: 18px;
-      max-width: 9ch;
+      max-width: 10ch;
     }
 
     h1 .gradient {
@@ -209,10 +218,10 @@
     }
 
     .hero-bio {
-      max-width: 62ch;
+      max-width: 64ch;
       font-size: 15px;
       color: var(--muted);
-      line-height: 1.85;
+      line-height: 1.9;
       margin-bottom: 22px;
     }
 
@@ -270,7 +279,7 @@
     }
 
     .hero-side {
-      padding: 24px;
+      padding: 22px;
       display: grid;
       gap: 14px;
       align-content: start;
@@ -293,10 +302,11 @@
 
     .stat-value {
       font-family: var(--sans);
-      font-size: 1.55rem;
+      font-size: 1.5rem;
       font-weight: 700;
       letter-spacing: -0.04em;
       margin-bottom: 6px;
+      line-height: 1.05;
     }
 
     .stat-copy {
@@ -305,8 +315,48 @@
       line-height: 1.7;
     }
 
+    .metrics-band {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-top: 8px;
+      margin-bottom: 22px;
+    }
+
+    .metric-tile {
+      background: linear-gradient(180deg, rgba(127, 141, 255, 0.08), rgba(255,255,255,0.03));
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 16px;
+      min-height: 118px;
+    }
+
+    .metric-number {
+      font-family: var(--sans);
+      font-size: 2rem;
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: -0.05em;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+
+    .metric-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      color: var(--cyan);
+      margin-bottom: 6px;
+    }
+
+    .metric-copy {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.65;
+    }
+
     .section {
-      padding: 28px 0;
+      padding: 20px 0 24px;
     }
 
     .section-header {
@@ -314,7 +364,7 @@
       align-items: end;
       justify-content: space-between;
       gap: 16px;
-      margin-bottom: 20px;
+      margin-bottom: 18px;
     }
 
     .section-kicker {
@@ -327,15 +377,146 @@
 
     h2 {
       font-family: var(--sans);
-      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      font-size: clamp(1.7rem, 3vw, 2.5rem);
       letter-spacing: -0.04em;
       line-height: 1;
     }
 
     .section-desc {
       color: var(--muted);
-      max-width: 58ch;
+      max-width: 62ch;
       font-size: 13px;
+      line-height: 1.75;
+    }
+
+    .case-study-card {
+      padding: 28px;
+      background:
+        linear-gradient(180deg, rgba(127, 141, 255, 0.08), rgba(255,255,255,0.025)),
+        var(--panel-strong);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .case-study-card::after {
+      content: "";
+      position: absolute;
+      inset: auto -120px -120px auto;
+      width: 280px;
+      height: 280px;
+      background: radial-gradient(circle, rgba(105, 227, 255, 0.12), transparent 70%);
+      pointer-events: none;
+    }
+
+    .case-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: flex-start;
+      margin-bottom: 14px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .case-title {
+      font-family: var(--sans);
+      font-size: clamp(1.45rem, 2.6vw, 2.2rem);
+      font-weight: 700;
+      letter-spacing: -0.04em;
+    }
+
+    .case-subtitle {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.7;
+      max-width: 72ch;
+      margin-bottom: 18px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .case-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 18px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .case-panel {
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.03);
+      border-radius: 18px;
+      padding: 18px;
+    }
+
+    .panel-label {
+      color: var(--cyan);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 10px;
+    }
+
+    .case-list {
+      list-style: none;
+      display: grid;
+      gap: 10px;
+    }
+
+    .case-list li {
+      color: var(--text);
+      font-size: 12.75px;
+      line-height: 1.75;
+      padding-left: 16px;
+      position: relative;
+    }
+
+    .case-list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.72em;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: linear-gradient(180deg, var(--cyan), var(--blue));
+      box-shadow: 0 0 10px rgba(105, 227, 255, 0.48);
+    }
+
+    .impact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .impact-tile {
+      border-radius: 14px;
+      padding: 14px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+    }
+
+    .impact-value {
+      font-family: var(--sans);
+      font-size: 1.5rem;
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: -0.05em;
+      margin-bottom: 6px;
+      color: var(--lime);
+    }
+
+    .impact-label {
+      color: var(--text);
+      font-size: 12px;
+      margin-bottom: 4px;
+    }
+
+    .impact-copy {
+      color: var(--muted);
+      font-size: 11.5px;
+      line-height: 1.65;
     }
 
     .projects-grid {
@@ -353,14 +534,14 @@
 
     .project-card:hover {
       transform: translateY(-4px);
-      border-color: rgba(102, 227, 255, 0.28);
+      border-color: rgba(105, 227, 255, 0.28);
       background: rgba(20, 31, 58, 0.95);
     }
 
     .project-card.featured {
       grid-column: span 2;
       background:
-        linear-gradient(180deg, rgba(124, 140, 255, 0.08), rgba(255,255,255,0.03)),
+        linear-gradient(180deg, rgba(127, 141, 255, 0.08), rgba(255,255,255,0.03)),
         var(--panel);
     }
 
@@ -374,8 +555,8 @@
       color: var(--lime);
       padding: 7px 10px;
       border-radius: 999px;
-      border: 1px solid rgba(142, 255, 181, 0.22);
-      background: rgba(142, 255, 181, 0.07);
+      border: 1px solid rgba(144, 255, 184, 0.22);
+      background: rgba(144, 255, 184, 0.07);
       margin-bottom: 14px;
     }
 
@@ -440,13 +621,15 @@
       height: 6px;
       border-radius: 50%;
       background: linear-gradient(180deg, var(--cyan), var(--blue));
-      box-shadow: 0 0 10px rgba(102, 227, 255, 0.5);
+      box-shadow: 0 0 10px rgba(105, 227, 255, 0.5);
     }
 
-    .project-tags {
+    .project-tags,
+    .case-tags {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
+      margin-top: 16px;
     }
 
     .tag {
@@ -462,20 +645,26 @@
 
     .tag-accent {
       color: var(--cyan);
-      border-color: rgba(102, 227, 255, 0.2);
-      background: rgba(102, 227, 255, 0.08);
+      border-color: rgba(105, 227, 255, 0.2);
+      background: rgba(105, 227, 255, 0.08);
     }
 
     .tag-violet {
-      color: #d7b4ff;
-      border-color: rgba(185, 131, 255, 0.24);
-      background: rgba(185, 131, 255, 0.09);
+      color: #d9bcff;
+      border-color: rgba(183, 143, 255, 0.24);
+      background: rgba(183, 143, 255, 0.09);
     }
 
     .tag-lime {
       color: var(--lime);
-      border-color: rgba(142, 255, 181, 0.2);
-      background: rgba(142, 255, 181, 0.08);
+      border-color: rgba(144, 255, 184, 0.2);
+      background: rgba(144, 255, 184, 0.08);
+    }
+
+    .tag-amber {
+      color: var(--amber);
+      border-color: rgba(255, 207, 123, 0.24);
+      background: rgba(255, 207, 123, 0.08);
     }
 
     .skills-grid {
@@ -514,8 +703,8 @@
     .contact-copy {
       color: var(--muted);
       font-size: 14px;
-      max-width: 56ch;
-      line-height: 1.85;
+      max-width: 60ch;
+      line-height: 1.9;
       margin-bottom: 18px;
     }
 
@@ -540,7 +729,7 @@
 
     .contact-item:hover {
       transform: translateY(-2px);
-      border-color: rgba(102, 227, 255, 0.24);
+      border-color: rgba(105, 227, 255, 0.24);
     }
 
     .contact-dot {
@@ -548,7 +737,7 @@
       height: 8px;
       border-radius: 50%;
       background: linear-gradient(180deg, var(--cyan), var(--blue));
-      box-shadow: 0 0 12px rgba(102, 227, 255, 0.55);
+      box-shadow: 0 0 12px rgba(105, 227, 255, 0.55);
       flex-shrink: 0;
     }
 
@@ -571,7 +760,7 @@
       height: 7px;
       border-radius: 50%;
       background: var(--lime);
-      box-shadow: 0 0 12px rgba(142,255,181,0.7);
+      box-shadow: 0 0 12px rgba(144,255,184,0.7);
       margin-right: 8px;
       animation: pulse 1.8s ease-in-out infinite;
     }
@@ -581,28 +770,39 @@
       50% { opacity: 0.45; transform: scale(0.9); }
     }
 
-    @media (max-width: 980px) {
+    @media (max-width: 1024px) {
       .hero,
-      .projects-grid,
-      .skills-grid {
+      .case-grid,
+      .skills-grid,
+      .metrics-band,
+      .projects-grid {
         grid-template-columns: 1fr;
       }
 
       .project-card.featured {
         grid-column: span 1;
       }
+
+      .impact-grid {
+        grid-template-columns: 1fr 1fr;
+      }
     }
 
-    @media (max-width: 640px) {
+    @media (max-width: 700px) {
       .nav-links { display: none; }
+      .shell { padding: 0 16px 48px; }
+      .nav-inner, footer { padding-left: 16px; padding-right: 16px; }
       .hero-main,
       .hero-side,
+      .case-study-card,
       .project-card,
       .skill-group,
       .contact-panel { padding: 20px; }
-      .shell { padding: 0 16px 40px; }
-      .nav-inner, footer { padding-left: 16px; padding-right: 16px; }
-      footer { flex-direction: column; align-items: flex-start; }
+      .impact-grid { grid-template-columns: 1fr; }
+      footer {
+        flex-direction: column;
+        align-items: flex-start;
+      }
     }
   </style>
 </head>
@@ -611,6 +811,7 @@
     <div class="nav-inner">
       <a href="#" class="nav-logo">Roman <span>Emmons</span></a>
       <ul class="nav-links">
+        <li><a href="#experience">Experience</a></li>
         <li><a href="#projects">Projects</a></li>
         <li><a href="#skills">Stack</a></li>
         <li><a href="#contact">Contact</a></li>
@@ -621,23 +822,23 @@
   <div class="shell">
     <section class="hero">
       <div class="hero-main">
-        <p class="hero-label">Backend Engineer · AI-enabled builder · San Francisco</p>
+        <p class="hero-label">Backend / Platform Engineer · AI-enabled builder · San Francisco</p>
         <h1>Backend systems for an <span class="gradient">Agentic</span> world.</h1>
         <p class="hero-bio">
-          I build production backends, data flows, and integration-heavy systems with a strong bias toward automation, reliability, and developer speed. My work sits at the intersection of APIs, cloud infrastructure, data processing, and AI-assisted engineering workflows.
+          I build production backends, event-driven services, and integration-heavy systems that support real business operations at scale. My work spans AWS infrastructure, data pipelines, legacy-to-modern platform integrations, and AI-assisted engineering workflows designed to increase speed, reliability, and leverage.
         </p>
 
         <div class="hero-points">
           <span class="pill">Node.js / TypeScript</span>
           <span class="pill">AWS & distributed systems</span>
+          <span class="pill">Enterprise integrations</span>
           <span class="pill">AI-assisted dev workflows</span>
-          <span class="pill">Integrations & automation</span>
         </div>
 
         <div class="hero-links">
           <a href="https://github.com/RomanEmmons" class="btn btn-primary" target="_blank">GitHub ↗</a>
           <a href="https://www.linkedin.com/in/roman-emmons/" class="btn btn-secondary" target="_blank">LinkedIn ↗</a>
-          <a href="#projects" class="btn btn-secondary">View projects</a>
+          <a href="#experience" class="btn btn-secondary">View case study</a>
         </div>
       </div>
 
@@ -645,30 +846,130 @@
         <div class="stat-card">
           <div class="stat-label">What I optimize for</div>
           <div class="stat-value">Velocity × Reliability</div>
-          <p class="stat-copy">I like systems that move fast without getting fragile: clean services, strong contracts, sane automation, and good operational behavior.</p>
+          <p class="stat-copy">I like systems that move fast without becoming fragile: clean contracts, sane automation, resilient services, and strong production behavior.</p>
         </div>
 
         <div class="stat-card">
           <div class="stat-label">Current focus</div>
-          <div class="stat-value">AI + backend leverage</div>
-          <p class="stat-copy">Using AI tools to reduce implementation drag, tighten feedback loops, and build internal workflows that make engineers faster.</p>
+          <div class="stat-value">Enterprise backend leverage</div>
+          <p class="stat-copy">Building systems that make complex operations feel simple: integrations, messaging flows, data movement, and tooling that reduces manual work.</p>
         </div>
 
         <div class="stat-card">
           <div class="stat-label">Best-fit roles</div>
           <div class="stat-value">Backend · Platform · Integrations</div>
-          <p class="stat-copy">Especially interested in teams building developer tools, workflow systems, fintech infrastructure, and automation-heavy products.</p>
+          <p class="stat-copy">Especially interested in developer tools, platform engineering, workflow systems, fintech infrastructure, and automation-heavy products.</p>
         </div>
       </aside>
+    </section>
+
+    <section class="section" aria-label="Key metrics">
+      <div class="metrics-band">
+        <div class="metric-tile">
+          <div class="metric-number">11M+</div>
+          <div class="metric-label">Customer records</div>
+          <div class="metric-copy">Led aggregation and cleansing efforts to improve reliability and trust in production data.</div>
+        </div>
+        <div class="metric-tile">
+          <div class="metric-number">4</div>
+          <div class="metric-label">Engineers led</div>
+          <div class="metric-copy">Led a small engineering team across new development, integrations, and production support.</div>
+        </div>
+        <div class="metric-tile">
+          <div class="metric-number">24/7</div>
+          <div class="metric-label">Operational mindset</div>
+          <div class="metric-copy">Built resiliency scripts and kept transaction processing moving during a ransomware incident.</div>
+        </div>
+        <div class="metric-tile">
+          <div class="metric-number">AWS</div>
+          <div class="metric-label">Core runtime</div>
+          <div class="metric-copy">Designed and deployed event-driven services using Lambda, SNS, SQS, ECS, and RDS.</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience" class="section">
+      <div class="section-header">
+        <div>
+          <p class="section-kicker">Case study</p>
+          <h2>David’s Bridal — enterprise commerce systems at scale</h2>
+        </div>
+        <p class="section-desc">
+          A snapshot of the kind of production engineering I do day to day: distributed services, legacy modernization, high-volume data workflows, and operational reliability under pressure.
+        </p>
+      </div>
+
+      <article class="case-study-card">
+        <div class="case-top">
+          <div>
+            <p class="eyebrow">Senior Software Engineer · 2021–Present</p>
+            <div class="case-title">Modernizing business-critical systems inside a large retail platform</div>
+          </div>
+        </div>
+
+        <p class="case-subtitle">
+          At David’s Bridal, I work on enterprise backend systems powering commerce, customer data, operational integrations, and production support. The work spans event-driven AWS services, legacy system modernization, dropship and platform integrations, and resilient engineering in environments where downtime has direct business impact.
+        </p>
+
+        <div class="case-grid">
+          <div class="case-panel">
+            <div class="panel-label">What I owned</div>
+            <ul class="case-list">
+              <li>Designed and deployed scalable, event-driven services on AWS using Lambda, SNS, SQS, ECS, and RDS.</li>
+              <li>Built and maintained backend services and integrations connecting modern applications with legacy commerce systems.</li>
+              <li>Coordinated a cross-functional replatforming effort from Adobe Magento to Shopify.</li>
+              <li>Led a team of four engineers across feature development, systems integration, and production support.</li>
+              <li>Used AI-assisted tools like Cursor and GitHub Copilot to reduce boilerplate and speed up delivery.</li>
+            </ul>
+
+            <div class="case-tags">
+              <span class="tag tag-accent">AWS Lambda</span>
+              <span class="tag tag-accent">SNS / SQS</span>
+              <span class="tag tag-violet">ECS / RDS</span>
+              <span class="tag tag-violet">Shopify migration</span>
+              <span class="tag tag-lime">Production support</span>
+              <span class="tag tag-amber">AI-assisted delivery</span>
+            </div>
+          </div>
+
+          <div class="case-panel">
+            <div class="panel-label">Impact</div>
+            <div class="impact-grid">
+              <div class="impact-tile">
+                <div class="impact-value">11M+</div>
+                <div class="impact-label">Records stabilized</div>
+                <div class="impact-copy">Led aggregation and cleansing of customer data in DynamoDB to improve data quality and system reliability.</div>
+              </div>
+              <div class="impact-tile">
+                <div class="impact-value">0 stop</div>
+                <div class="impact-label">Transaction continuity</div>
+                <div class="impact-copy">Built resiliency scripts during a ransomware incident to keep critical transaction flows running.</div>
+              </div>
+              <div class="impact-tile">
+                <div class="impact-value">Legacy → Modern</div>
+                <div class="impact-label">Platform transition</div>
+                <div class="impact-copy">Helped bridge old commerce infrastructure with newer services during a major replatforming initiative.</div>
+              </div>
+              <div class="impact-tile">
+                <div class="impact-value">4-person</div>
+                <div class="impact-label">Engineering leadership</div>
+                <div class="impact-copy">Led across delivery, production support, and integrations in a high-volume business environment.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
     </section>
 
     <section id="projects" class="section">
       <div class="section-header">
         <div>
-          <p class="section-kicker">Selected work</p>
-          <h2>Systems, automation, and AI-adjacent tooling</h2>
+          <p class="section-kicker">Selected projects</p>
+          <h2>Automation, APIs, and developer-minded systems</h2>
         </div>
-        <p class="section-desc">Projects that show how I think about pipelines, APIs, workflow design, and practical engineering leverage.</p>
+        <p class="section-desc">
+          Side projects and product builds that show how I think about ingestion pipelines, API design, structured backend architecture, and practical engineering leverage.
+        </p>
       </div>
 
       <div class="projects-grid">
@@ -727,7 +1028,7 @@
             <a href="https://github.com/RomanEmmons/chonky-cat" class="project-link" target="_blank">View repo ↗</a>
           </div>
           <p class="project-desc">
-            A playful location-based adoption app that highlights end-to-end product thinking: scraped data, backend organization, filtering logic, and a React frontend layered over a solid service foundation.
+            A location-based adoption app that highlights end-to-end product thinking: scraped data, backend organization, filtering logic, and a React frontend layered over a solid service foundation.
           </p>
           <ul class="project-highlights">
             <li>Architected a structured MVC backend with clean controller and data boundaries.</li>
@@ -768,9 +1069,11 @@
       <div class="section-header">
         <div>
           <p class="section-kicker">Technical stack</p>
-          <h2>Built for modern backend and AI-enabled engineering</h2>
+          <h2>Built for modern backend and devtools-adjacent engineering</h2>
         </div>
-        <p class="section-desc">A practical toolkit for APIs, automation, data movement, and shipping software fast without sacrificing structure.</p>
+        <p class="section-desc">
+          A practical toolkit for event-driven services, API design, integrations, data movement, and fast iteration in production environments.
+        </p>
       </div>
 
       <div class="skills-grid">
@@ -778,43 +1081,43 @@
           <p class="skill-group-label">Languages</p>
           <ul class="skill-list">
             <li>TypeScript</li>
-            <li>JavaScript (ES6+)</li>
-            <li>SQL / TSQL</li>
+            <li>Node.js / JavaScript</li>
+            <li>SQL</li>
             <li>HTML / CSS</li>
-          </ul>
-        </div>
-
-        <div class="skill-group">
-          <p class="skill-group-label">Backend</p>
-          <ul class="skill-list">
-            <li>Node.js</li>
             <li>Express</li>
-            <li>REST APIs</li>
-            <li>Data pipelines</li>
-            <li>File parsing & ingestion</li>
-            <li>Workflow automation</li>
           </ul>
         </div>
 
         <div class="skill-group">
-          <p class="skill-group-label">Cloud & data</p>
+          <p class="skill-group-label">Cloud & systems</p>
           <ul class="skill-list">
-            <li>AWS deployment workflows</li>
+            <li>AWS Lambda</li>
+            <li>ECS / EC2 / Fargate</li>
+            <li>SNS / SQS</li>
+            <li>API Gateway</li>
+            <li>Distributed services</li>
+          </ul>
+        </div>
+
+        <div class="skill-group">
+          <p class="skill-group-label">Data & storage</p>
+          <ul class="skill-list">
+            <li>DynamoDB</li>
             <li>MongoDB</li>
-            <li>ERP integration</li>
-            <li>Database design</li>
-            <li>Production process management</li>
+            <li>Redis</li>
+            <li>Scalable data pipelines</li>
+            <li>File parsing / OCR workflows</li>
           </ul>
         </div>
 
         <div class="skill-group">
-          <p class="skill-group-label">AI-enabled workflow</p>
+          <p class="skill-group-label">Workflow & leverage</p>
           <ul class="skill-list">
-            <li>AI-assisted development</li>
-            <li>Rapid prototyping</li>
-            <li>Developer tooling mindset</li>
+            <li>CI/CD pipelines</li>
+            <li>Docker / Jenkins</li>
+            <li>Cursor / Copilot</li>
             <li>Code review collaboration</li>
-            <li>Architecture for leverage</li>
+            <li>System modernization</li>
           </ul>
         </div>
       </div>
@@ -824,13 +1127,13 @@
       <div class="section-header">
         <div>
           <p class="section-kicker">Contact</p>
-          <h2>Open to backend, platform, and AI-adjacent roles</h2>
+          <h2>Open to backend, platform, and integrations roles</h2>
         </div>
       </div>
 
       <div class="contact-panel">
         <p class="contact-copy">
-          I’m especially interested in teams working on developer productivity, internal tooling, automation, data infrastructure, and backend systems that benefit from thoughtful use of AI. If that sounds like your world, let’s talk.
+          I’m especially interested in teams building developer tools, platform infrastructure, backend APIs, distributed workflows, and automation-heavy systems where engineering leverage really matters. If that sounds like your world, I’d love to connect.
         </p>
 
         <div class="contact-row">
