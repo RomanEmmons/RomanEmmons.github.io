@@ -8,40 +8,31 @@
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
       --bg: #07111f;
       --bg-soft: #0d1729;
       --panel: rgba(12, 22, 40, 0.88);
       --panel-strong: rgba(14, 26, 48, 0.98);
       --panel-alt: rgba(20, 33, 58, 0.92);
-
       --text: #eef4ff;
       --muted: #a9b8d8;
       --faint: #6d7ea6;
-
       --border: rgba(140, 163, 255, 0.14);
       --border-strong: rgba(136, 160, 255, 0.3);
-
       --cyan: #69e3ff;
       --blue: #7f8dff;
       --violet: #b78fff;
       --lime: #90ffb8;
       --pink: #ff93d8;
       --amber: #ffcf7b;
-
       --glow: 0 0 40px rgba(127, 141, 255, 0.15);
-
       --mono: 'DM Mono', monospace;
       --sans: 'Space Grotesk', sans-serif;
-
       --radius: 22px;
       --radius-sm: 16px;
       --max: 1160px;
     }
-
     html { scroll-behavior: smooth; }
-
     body {
       font-family: var(--mono);
       background:
@@ -54,7 +45,6 @@
       font-size: 14px;
       line-height: 1.65;
     }
-
     body::before {
       content: "";
       position: fixed;
@@ -67,9 +57,7 @@
       mask-image: radial-gradient(circle at center, black 40%, transparent 85%);
       opacity: 0.45;
     }
-
     a { color: inherit; }
-
     .shell {
       max-width: var(--max);
       margin: 0 auto;
@@ -77,7 +65,6 @@
       position: relative;
       z-index: 1;
     }
-
     nav {
       position: sticky;
       top: 0;
@@ -86,7 +73,6 @@
       background: rgba(7, 17, 31, 0.78);
       border-bottom: 1px solid var(--border);
     }
-
     .nav-inner {
       max-width: var(--max);
       margin: 0 auto;
@@ -97,7 +83,6 @@
       justify-content: space-between;
       gap: 16px;
     }
-
     .nav-logo {
       font-family: var(--sans);
       font-size: 1.45rem;
@@ -109,13 +94,10 @@
       text-shadow: 0 0 18px rgba(127, 141, 255, 0.24);
       white-space: nowrap;
     }
-
     .nav-logo span { color: var(--cyan); }
-
     @media (min-width: 900px) {
       .nav-logo { font-size: 1.75rem; }
     }
-
     .nav-links {
       display: flex;
       list-style: none;
@@ -123,7 +105,6 @@
       flex-wrap: wrap;
       justify-content: flex-end;
     }
-
     .nav-links a {
       text-decoration: none;
       color: var(--muted);
@@ -132,12 +113,10 @@
       text-transform: uppercase;
       transition: color 0.2s ease, transform 0.2s ease;
     }
-
     .nav-links a:hover {
       color: var(--text);
       transform: translateY(-1px);
     }
-
     .hero {
       display: grid;
       grid-template-columns: 1.35fr 0.95fr;
@@ -145,7 +124,6 @@
       padding: 56px 0 20px;
       align-items: stretch;
     }
-
     .hero-main,
     .hero-side,
     .case-study-card,
@@ -158,13 +136,11 @@
       box-shadow: var(--glow);
       backdrop-filter: blur(10px);
     }
-
     .hero-main {
       padding: 34px;
       position: relative;
       overflow: hidden;
     }
-
     .hero-main::after {
       content: "";
       position: absolute;
@@ -175,7 +151,6 @@
       background: radial-gradient(circle, rgba(127, 141, 255, 0.22), transparent 70%);
       pointer-events: none;
     }
-
     .hero-label,
     .eyebrow {
       display: inline-flex;
@@ -191,7 +166,6 @@
       text-transform: uppercase;
       margin-bottom: 18px;
     }
-
     .hero-label::before,
     .eyebrow::before {
       content: "";
@@ -201,7 +175,6 @@
       background: var(--lime);
       box-shadow: 0 0 16px rgba(144, 255, 184, 0.8);
     }
-
     h1 {
       font-family: var(--sans);
       font-size: clamp(2.95rem, 6vw, 5.75rem);
@@ -210,14 +183,12 @@
       margin-bottom: 18px;
       max-width: 10ch;
     }
-
     h1 .gradient {
       background: linear-gradient(90deg, var(--cyan), var(--blue), var(--violet));
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
     }
-
     .hero-bio {
       max-width: 64ch;
       font-size: 15px;
@@ -225,14 +196,12 @@
       line-height: 1.9;
       margin-bottom: 22px;
     }
-
     .hero-points {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
       margin-bottom: 24px;
     }
-
     .pill {
       font-size: 11px;
       text-transform: uppercase;
@@ -243,13 +212,11 @@
       border: 1px solid var(--border);
       color: var(--text);
     }
-
     .hero-links {
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
     }
-
     .btn {
       display: inline-flex;
       align-items: center;
@@ -264,35 +231,29 @@
       transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
       border: 1px solid var(--border-strong);
     }
-
     .btn:hover { transform: translateY(-2px); }
-
     .btn-primary {
       background: linear-gradient(90deg, var(--cyan), var(--blue));
       color: #08101f;
       font-weight: 700;
       border: none;
     }
-
     .btn-secondary {
       background: rgba(255,255,255,0.03);
       color: var(--text);
     }
-
     .hero-side {
       padding: 22px;
       display: grid;
       gap: 14px;
       align-content: start;
     }
-
     .stat-card {
       padding: 16px;
       border-radius: 16px;
       background: rgba(255,255,255,0.03);
       border: 1px solid var(--border);
     }
-
     .stat-label {
       font-size: 11px;
       color: var(--faint);
@@ -300,7 +261,6 @@
       letter-spacing: 0.08em;
       margin-bottom: 6px;
     }
-
     .stat-value {
       font-family: var(--sans);
       font-size: 1.5rem;
@@ -309,13 +269,11 @@
       margin-bottom: 6px;
       line-height: 1.05;
     }
-
     .stat-copy {
       color: var(--muted);
       font-size: 12.5px;
       line-height: 1.7;
     }
-
     .metrics-band {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -323,7 +281,6 @@
       margin-top: 8px;
       margin-bottom: 22px;
     }
-
     .metric-tile {
       background: linear-gradient(180deg, rgba(127, 141, 255, 0.08), rgba(255,255,255,0.03));
       border: 1px solid var(--border);
@@ -331,7 +288,6 @@
       padding: 16px;
       min-height: 118px;
     }
-
     .metric-number {
       font-family: var(--sans);
       font-size: 2rem;
@@ -341,7 +297,6 @@
       margin-bottom: 8px;
       color: var(--text);
     }
-
     .metric-label {
       font-size: 11px;
       text-transform: uppercase;
@@ -349,17 +304,14 @@
       color: var(--cyan);
       margin-bottom: 6px;
     }
-
     .metric-copy {
       color: var(--muted);
       font-size: 12px;
       line-height: 1.65;
     }
-
     .section {
       padding: 20px 0 24px;
     }
-
     .section-header {
       display: flex;
       align-items: end;
@@ -367,7 +319,6 @@
       gap: 16px;
       margin-bottom: 18px;
     }
-
     .section-kicker {
       font-size: 11px;
       color: var(--cyan);
@@ -375,21 +326,18 @@
       letter-spacing: 0.12em;
       margin-bottom: 6px;
     }
-
     h2 {
       font-family: var(--sans);
       font-size: clamp(1.7rem, 3vw, 2.5rem);
       letter-spacing: -0.04em;
       line-height: 1;
     }
-
     .section-desc {
       color: var(--muted);
       max-width: 62ch;
       font-size: 13px;
       line-height: 1.75;
     }
-
     .case-study-card {
       padding: 28px;
       background:
@@ -398,7 +346,6 @@
       overflow: hidden;
       position: relative;
     }
-
     .case-study-card::after {
       content: "";
       position: absolute;
@@ -408,7 +355,6 @@
       background: radial-gradient(circle, rgba(105, 227, 255, 0.12), transparent 70%);
       pointer-events: none;
     }
-
     .case-top {
       display: flex;
       justify-content: space-between;
@@ -418,14 +364,12 @@
       position: relative;
       z-index: 1;
     }
-
     .case-title {
       font-family: var(--sans);
       font-size: clamp(1.45rem, 2.6vw, 2.2rem);
       font-weight: 700;
       letter-spacing: -0.04em;
     }
-
     .case-subtitle {
       color: var(--muted);
       font-size: 13px;
@@ -435,7 +379,6 @@
       position: relative;
       z-index: 1;
     }
-
     .case-grid {
       display: grid;
       grid-template-columns: 1.1fr 0.9fr;
@@ -443,14 +386,12 @@
       position: relative;
       z-index: 1;
     }
-
     .case-panel {
       border: 1px solid var(--border);
       background: rgba(255,255,255,0.03);
       border-radius: 18px;
       padding: 18px;
     }
-
     .panel-label {
       color: var(--cyan);
       font-size: 11px;
@@ -458,13 +399,11 @@
       letter-spacing: 0.1em;
       margin-bottom: 10px;
     }
-
     .case-list {
       list-style: none;
       display: grid;
       gap: 10px;
     }
-
     .case-list li {
       color: var(--text);
       font-size: 12.75px;
@@ -472,7 +411,6 @@
       padding-left: 16px;
       position: relative;
     }
-
     .case-list li::before {
       content: "";
       position: absolute;
@@ -484,20 +422,17 @@
       background: linear-gradient(180deg, var(--cyan), var(--blue));
       box-shadow: 0 0 10px rgba(105, 227, 255, 0.48);
     }
-
     .impact-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 12px;
     }
-
     .impact-tile {
       border-radius: 14px;
       padding: 14px;
       background: rgba(255,255,255,0.03);
       border: 1px solid var(--border);
     }
-
     .impact-value {
       font-family: var(--sans);
       font-size: 1.5rem;
@@ -507,45 +442,38 @@
       margin-bottom: 6px;
       color: var(--lime);
     }
-
     .impact-label {
       color: var(--text);
       font-size: 12px;
       margin-bottom: 4px;
     }
-
     .impact-copy {
       color: var(--muted);
       font-size: 11.5px;
       line-height: 1.65;
     }
-
     .projects-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 18px;
     }
-
     .project-card {
       padding: 24px;
       position: relative;
       overflow: hidden;
       transition: transform 0.22s ease, border-color 0.22s ease, background 0.22s ease;
     }
-
     .project-card:hover {
       transform: translateY(-4px);
       border-color: rgba(105, 227, 255, 0.28);
       background: rgba(20, 31, 58, 0.95);
     }
-
     .project-card.featured {
       grid-column: span 2;
       background:
         linear-gradient(180deg, rgba(127, 141, 255, 0.08), rgba(255,255,255,0.03)),
         var(--panel);
     }
-
     .featured-badge {
       display: inline-flex;
       align-items: center;
@@ -560,12 +488,10 @@
       background: rgba(144, 255, 184, 0.07);
       margin-bottom: 14px;
     }
-
     .featured-badge::before {
       content: "✦";
       font-size: 10px;
     }
-
     .project-top {
       display: flex;
       justify-content: space-between;
@@ -573,14 +499,12 @@
       gap: 16px;
       margin-bottom: 10px;
     }
-
     .project-name {
       font-family: var(--sans);
       font-size: 1.35rem;
       font-weight: 700;
       letter-spacing: -0.04em;
     }
-
     .project-link {
       font-size: 11px;
       color: var(--cyan);
@@ -589,7 +513,6 @@
       letter-spacing: 0.08em;
       white-space: nowrap;
     }
-
     .project-desc {
       color: var(--muted);
       font-size: 13.5px;
@@ -597,14 +520,12 @@
       margin-bottom: 16px;
       max-width: 68ch;
     }
-
     .project-highlights {
       list-style: none;
       display: grid;
       gap: 10px;
       margin-bottom: 18px;
     }
-
     .project-highlights li {
       color: var(--text);
       font-size: 12.75px;
@@ -612,7 +533,6 @@
       padding-left: 16px;
       position: relative;
     }
-
     .project-highlights li::before {
       content: "";
       position: absolute;
@@ -624,7 +544,6 @@
       background: linear-gradient(180deg, var(--cyan), var(--blue));
       box-shadow: 0 0 10px rgba(105, 227, 255, 0.5);
     }
-
     .project-tags,
     .case-tags {
       display: flex;
@@ -632,7 +551,6 @@
       gap: 8px;
       margin-top: 16px;
     }
-
     .tag {
       font-size: 10.5px;
       letter-spacing: 0.07em;
@@ -643,41 +561,34 @@
       background: rgba(255,255,255,0.03);
       color: var(--muted);
     }
-
     .tag-accent {
       color: var(--cyan);
       border-color: rgba(105, 227, 255, 0.2);
       background: rgba(105, 227, 255, 0.08);
     }
-
     .tag-violet {
       color: #d9bcff;
       border-color: rgba(183, 143, 255, 0.24);
       background: rgba(183, 143, 255, 0.09);
     }
-
     .tag-lime {
       color: var(--lime);
       border-color: rgba(144, 255, 184, 0.2);
       background: rgba(144, 255, 184, 0.08);
     }
-
     .tag-amber {
       color: var(--amber);
       border-color: rgba(255, 207, 123, 0.24);
       background: rgba(255, 207, 123, 0.08);
     }
-
     .skills-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 18px;
     }
-
     .skill-group {
       padding: 22px;
     }
-
     .skill-group-label {
       color: var(--cyan);
       font-size: 11px;
@@ -685,22 +596,18 @@
       letter-spacing: 0.1em;
       margin-bottom: 12px;
     }
-
     .skill-list {
       list-style: none;
       display: grid;
       gap: 8px;
     }
-
     .skill-list li {
       color: var(--muted);
       font-size: 13px;
     }
-
     .contact-panel {
       padding: 24px;
     }
-
     .contact-copy {
       color: var(--muted);
       font-size: 14px;
@@ -708,13 +615,11 @@
       line-height: 1.9;
       margin-bottom: 18px;
     }
-
     .contact-row {
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
     }
-
     .contact-item {
       display: inline-flex;
       align-items: center;
@@ -727,12 +632,10 @@
       color: var(--text);
       transition: transform 0.2s ease, border-color 0.2s ease;
     }
-
     .contact-item:hover {
       transform: translateY(-2px);
       border-color: rgba(105, 227, 255, 0.24);
     }
-
     .contact-dot {
       width: 8px;
       height: 8px;
@@ -741,7 +644,6 @@
       box-shadow: 0 0 12px rgba(105, 227, 255, 0.55);
       flex-shrink: 0;
     }
-
     footer {
       max-width: var(--max);
       margin: 0 auto;
@@ -754,7 +656,6 @@
       text-transform: uppercase;
       letter-spacing: 0.07em;
     }
-
     .status-dot {
       display: inline-block;
       width: 7px;
@@ -765,12 +666,10 @@
       margin-right: 8px;
       animation: pulse 1.8s ease-in-out infinite;
     }
-
     @keyframes pulse {
       0%, 100% { opacity: 1; transform: scale(1); }
       50% { opacity: 0.45; transform: scale(0.9); }
     }
-
     @media (max-width: 1024px) {
       .hero,
       .case-grid,
@@ -779,16 +678,13 @@
       .projects-grid {
         grid-template-columns: 1fr;
       }
-
       .project-card.featured {
         grid-column: span 1;
       }
-
       .impact-grid {
         grid-template-columns: 1fr 1fr;
       }
     }
-
     @media (max-width: 700px) {
       .nav-links { display: none; }
       .shell { padding: 0 16px 48px; }
@@ -819,7 +715,6 @@
       </ul>
     </div>
   </nav>
-
   <div class="shell">
     <section class="hero">
       <div class="hero-main">
@@ -828,34 +723,29 @@
         <p class="hero-bio">
           I build production backends, event-driven services, and integration-heavy systems that support real business operations at scale. My work spans AWS infrastructure, data pipelines, legacy-to-modern platform integrations, and AI-assisted engineering workflows designed to increase speed, reliability, and leverage.
         </p>
-
         <div class="hero-points">
           <span class="pill">Node.js / TypeScript</span>
           <span class="pill">AWS & distributed systems</span>
           <span class="pill">Enterprise integrations</span>
           <span class="pill">AI-assisted dev workflows</span>
         </div>
-
         <div class="hero-links">
           <a href="https://github.com/RomanEmmons" class="btn btn-primary" target="_blank">GitHub ↗</a>
           <a href="https://www.linkedin.com/in/roman-emmons/" class="btn btn-secondary" target="_blank">LinkedIn ↗</a>
           <a href="#experience" class="btn btn-secondary">View case study</a>
         </div>
       </div>
-
       <aside class="hero-side">
         <div class="stat-card">
           <div class="stat-label">What I optimize for</div>
           <div class="stat-value">Velocity × Reliability</div>
           <p class="stat-copy">I like systems that move fast without becoming fragile: clean contracts, sane automation, resilient services, and strong production behavior.</p>
         </div>
-
         <div class="stat-card">
           <div class="stat-label">Current focus</div>
           <div class="stat-value">Enterprise backend leverage</div>
           <p class="stat-copy">Building systems that make complex operations feel simple: integrations, messaging flows, data movement, and tooling that reduces manual work.</p>
         </div>
-
         <div class="stat-card">
           <div class="stat-label">Best-fit roles</div>
           <div class="stat-value">Backend · Platform · Integrations</div>
@@ -863,7 +753,6 @@
         </div>
       </aside>
     </section>
-
     <section class="section" aria-label="Key metrics">
       <div class="metrics-band">
         <div class="metric-tile">
@@ -872,9 +761,9 @@
           <div class="metric-copy">Led aggregation and cleansing efforts to improve reliability and trust in production data.</div>
         </div>
         <div class="metric-tile">
-          <div class="metric-number">4</div>
+          <div class="metric-number">10+</div>
           <div class="metric-label">Engineers led</div>
-          <div class="metric-copy">Led a small engineering team across new development, integrations, and production support.</div>
+          <div class="metric-copy">Led an engineering team across new development, integrations, and production support.</div>
         </div>
         <div class="metric-tile">
           <div class="metric-number">24/7</div>
@@ -888,7 +777,6 @@
         </div>
       </div>
     </section>
-
     <section id="experience" class="section">
       <div class="section-header">
         <div>
@@ -899,7 +787,6 @@
           A snapshot of the kind of production engineering I do day to day: distributed services, legacy modernization, high-volume data workflows, and operational reliability under pressure.
         </p>
       </div>
-
       <article class="case-study-card">
         <div class="case-top">
           <div>
@@ -907,11 +794,9 @@
             <div class="case-title">Modernizing business-critical systems inside a large retail platform</div>
           </div>
         </div>
-
         <p class="case-subtitle">
           At David’s Bridal, I work on enterprise backend systems powering commerce, customer data, operational integrations, and production support. The work spans event-driven AWS services, legacy system modernization, dropship and platform integrations, and resilient engineering in environments where downtime has direct business impact.
         </p>
-
         <div class="case-grid">
           <div class="case-panel">
             <div class="panel-label">What I owned</div>
@@ -919,10 +804,9 @@
               <li>Designed and deployed scalable, event-driven services on AWS using Lambda, SNS, SQS, ECS, and RDS.</li>
               <li>Built and maintained backend services and integrations connecting modern applications with legacy commerce systems.</li>
               <li>Coordinated a cross-functional replatforming effort from Adobe Magento to Shopify.</li>
-              <li>Led a team of four engineers across feature development, systems integration, and production support.</li>
+              <li>Led a team of 10+ engineers across feature development, systems integration, and production support.</li>
               <li>Used AI-assisted tools like Cursor and GitHub Copilot to reduce boilerplate and speed up delivery.</li>
             </ul>
-
             <div class="case-tags">
               <span class="tag tag-accent">AWS Lambda</span>
               <span class="tag tag-accent">SNS / SQS</span>
@@ -932,7 +816,6 @@
               <span class="tag tag-amber">AI-assisted delivery</span>
             </div>
           </div>
-
           <div class="case-panel">
             <div class="panel-label">Impact</div>
             <div class="impact-grid">
@@ -952,7 +835,7 @@
                 <div class="impact-copy">Helped bridge old commerce infrastructure with newer services during a major replatforming initiative.</div>
               </div>
               <div class="impact-tile">
-                <div class="impact-value">4-person</div>
+                <div class="impact-value">10+ eng</div>
                 <div class="impact-label">Engineering leadership</div>
                 <div class="impact-copy">Led across delivery, production support, and integrations in a high-volume business environment.</div>
               </div>
@@ -961,7 +844,6 @@
         </div>
       </article>
     </section>
-
     <section id="projects" class="section">
       <div class="section-header">
         <div>
@@ -972,7 +854,6 @@
           Side projects and product builds that show how I think about ingestion pipelines, API design, structured backend architecture, and practical engineering leverage.
         </p>
       </div>
-
       <div class="projects-grid">
         <article class="project-card featured">
           <div class="featured-badge">Flagship build</div>
@@ -1000,7 +881,6 @@
             <span class="tag">Excel / PDF parsing</span>
           </div>
         </article>
-
         <article class="project-card">
           <div class="project-top">
             <span class="project-name">RepoRetriever</span>
@@ -1022,7 +902,6 @@
             <span class="tag">REST</span>
           </div>
         </article>
-
         <article class="project-card">
           <div class="project-top">
             <span class="project-name">Chonky Cat</span>
@@ -1044,7 +923,6 @@
             <span class="tag">MVC</span>
           </div>
         </article>
-
         <article class="project-card">
           <div class="project-top">
             <span class="project-name">Molly Souza Portfolio</span>
@@ -1065,7 +943,6 @@
         </article>
       </div>
     </section>
-
     <section id="skills" class="section">
       <div class="section-header">
         <div>
@@ -1076,7 +953,6 @@
           A practical toolkit for event-driven services, API design, integrations, data movement, and fast iteration in production environments.
         </p>
       </div>
-
       <div class="skills-grid">
         <div class="skill-group">
           <p class="skill-group-label">Languages</p>
@@ -1088,7 +964,6 @@
             <li>Express</li>
           </ul>
         </div>
-
         <div class="skill-group">
           <p class="skill-group-label">Cloud & systems</p>
           <ul class="skill-list">
@@ -1099,7 +974,6 @@
             <li>Distributed services</li>
           </ul>
         </div>
-
         <div class="skill-group">
           <p class="skill-group-label">Data & storage</p>
           <ul class="skill-list">
@@ -1110,7 +984,6 @@
             <li>File parsing / OCR workflows</li>
           </ul>
         </div>
-
         <div class="skill-group">
           <p class="skill-group-label">Workflow & leverage</p>
           <ul class="skill-list">
@@ -1123,7 +996,6 @@
         </div>
       </div>
     </section>
-
     <section id="contact" class="section">
       <div class="section-header">
         <div>
@@ -1131,12 +1003,10 @@
           <h2>Open to backend, platform, and integrations roles</h2>
         </div>
       </div>
-
       <div class="contact-panel">
         <p class="contact-copy">
           I’m especially interested in teams building developer tools, platform infrastructure, backend APIs, distributed workflows, and automation-heavy systems where engineering leverage really matters. If that sounds like your world, I’d love to connect.
         </p>
-
         <div class="contact-row">
           <a href="mailto:roman.emmons@gmail.com" class="contact-item">
             <span class="contact-dot"></span>
@@ -1154,7 +1024,6 @@
       </div>
     </section>
   </div>
-
   <footer>
     <span>Roman Emmons · Backend / Platform Engineer</span>
     <span><span class="status-dot"></span>Open to opportunities</span>
