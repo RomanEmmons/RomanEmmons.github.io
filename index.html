@@ -1,1032 +1,500 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Roman Emmons — Backend / Platform Engineer</title>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --bg: #07111f;
-      --bg-soft: #0d1729;
-      --panel: rgba(12, 22, 40, 0.88);
-      --panel-strong: rgba(14, 26, 48, 0.98);
-      --panel-alt: rgba(20, 33, 58, 0.92);
-      --text: #eef4ff;
-      --muted: #a9b8d8;
-      --faint: #6d7ea6;
-      --border: rgba(140, 163, 255, 0.14);
-      --border-strong: rgba(136, 160, 255, 0.3);
-      --cyan: #69e3ff;
-      --blue: #7f8dff;
-      --violet: #b78fff;
-      --lime: #90ffb8;
-      --pink: #ff93d8;
-      --amber: #ffcf7b;
-      --glow: 0 0 40px rgba(127, 141, 255, 0.15);
-      --mono: 'DM Mono', monospace;
-      --sans: 'Space Grotesk', sans-serif;
-      --radius: 22px;
-      --radius-sm: 16px;
-      --max: 1160px;
-    }
-    html { scroll-behavior: smooth; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Roman Emmons &mdash; CV</title>
+<style>
+  @font-face {
+    font-family: 'Space Grotesk';
+    src: url('/Users/romanemmons/Documents/career-ops/fonts/space-grotesk-latin.woff2') format('woff2');
+    font-weight: 300 700;
+    font-style: normal;
+    font-display: swap;
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+
+  @font-face {
+    font-family: 'DM Sans';
+    src: url('/Users/romanemmons/Documents/career-ops/fonts/dm-sans-latin.woff2') format('woff2');
+    font-weight: 100 1000;
+    font-style: normal;
+    font-display: swap;
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    line-height: 1.5;
+    color: #1a1a2e;
+    background: #ffffff;
+    padding: 0;
+    margin: 0;
+  }
+
+  .page {
+    width: 8.5in;
+    margin: 0 auto;
+    padding: 0.6in;
+  }
+
+  /* === HEADER === */
+  .header {
+    margin-bottom: 18px;
+  }
+
+  .header h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: #1a1a2e;
+    letter-spacing: -0.02em;
+    margin-bottom: 6px;
+    line-height: 1.1;
+  }
+
+  .header-gradient {
+    height: 2px;
+    background: linear-gradient(to right, hsl(187, 74%, 32%), hsl(270, 70%, 45%));
+    border-radius: 1px;
+    margin-bottom: 10px;
+  }
+
+  .contact-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 14px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10.5px;
+    line-height: 1.4;
+    color: #555;
+  }
+
+  .contact-row a {
+    color: #555;
+    text-decoration: none;
+  }
+
+  .contact-row .separator {
+    color: #ccc;
+  }
+
+  /* === SECTIONS === */
+  .section {
+    margin-bottom: 16px;
+  }
+
+  .section-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: hsl(187, 74%, 32%);
+    border-bottom: 1.5px solid #e2e2e2;
+    padding-bottom: 4px;
+    margin-bottom: 10px;
+    line-height: 1.2;
+  }
+
+  /* === PROFESSIONAL SUMMARY === */
+  .summary-text {
+    font-size: 11px;
+    line-height: 1.7;
+    color: #2f2f2f;
+  }
+
+  a {
+    white-space: nowrap;
+  }
+
+  /* === CORE COMPETENCIES === */
+  .competencies-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+  }
+
+  .competency-tag {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    color: hsl(187, 74%, 28%);
+    background: hsl(187, 40%, 95%);
+    padding: 4px 10px;
+    border-radius: 3px;
+    border: 1px solid hsl(187, 40%, 88%);
+  }
+
+  /* === WORK EXPERIENCE === */
+  .job {
+    margin-bottom: 13px;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .job-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 2px;
+  }
+
+  .job-company {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 12.5px;
+    font-weight: 600;
+    color: hsl(270, 70%, 45%);
+  }
+
+  .job-period {
+    font-size: 10.5px;
+    color: #777;
+    white-space: nowrap;
+  }
+
+  .job-role {
+    font-size: 11px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 5px;
+  }
+
+  .job ul {
+    padding-left: 18px;
+    margin-top: 4px;
+  }
+
+  .job li {
+    font-size: 10.5px;
+    line-height: 1.6;
+    color: #333;
+    margin-bottom: 3px;
+  }
+
+  .job li strong {
+    font-weight: 600;
+  }
+
+  /* === PROJECTS === */
+  .project {
+    margin-bottom: 11px;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .project-header {
+    display: flex;
+    align-items: baseline;
+    gap: 0;
+  }
+
+  .project-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 11.5px;
+    font-weight: 600;
+    color: hsl(270, 70%, 45%);
+  }
+
+  .project-badge {
+    font-size: 9px;
+    font-weight: 500;
+    color: hsl(187, 74%, 32%);
+    background: hsl(187, 40%, 95%);
+    padding: 1px 6px;
+    border-radius: 2px;
+    margin-left: 7px;
+    border: 1px solid hsl(187, 40%, 88%);
+  }
+
+  .project-desc {
+    font-size: 10.5px;
+    color: #444;
+    margin-top: 3px;
+    line-height: 1.55;
+  }
+
+  .project-tech {
+    font-size: 9.5px;
+    color: #888;
+    margin-top: 3px;
+  }
+
+  /* === EDUCATION === */
+  .edu-item {
+    margin-bottom: 8px;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .edu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+  }
+
+  .edu-org {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 11.5px;
+    font-weight: 600;
+    color: hsl(270, 70%, 45%);
+  }
+
+  .edu-year {
+    font-size: 10px;
+    color: #777;
+    white-space: nowrap;
+  }
+
+  .edu-desc {
+    font-size: 10px;
+    color: #555;
+    margin-top: 2px;
+    line-height: 1.5;
+  }
+
+  /* === SKILLS === */
+  .skills-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .skills-table tr {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .skills-table td {
+    font-size: 10.5px;
+    color: #444;
+    padding: 2px 0;
+    vertical-align: top;
+  }
+
+  .skill-category {
+    font-weight: 600;
+    color: #333;
+    white-space: nowrap;
+    padding-right: 10px;
+    width: 130px;
+  }
+
+  /* === PRINT === */
+  @media print {
     body {
-      font-family: var(--mono);
-      background:
-        radial-gradient(circle at top left, rgba(105, 227, 255, 0.12), transparent 28%),
-        radial-gradient(circle at top right, rgba(183, 143, 255, 0.14), transparent 34%),
-        radial-gradient(circle at bottom center, rgba(144, 255, 184, 0.08), transparent 36%),
-        var(--bg);
-      color: var(--text);
-      min-height: 100vh;
-      font-size: 14px;
-      line-height: 1.65;
-    }
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      background-image:
-        linear-gradient(rgba(255,255,255,0.022) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.022) 1px, transparent 1px);
-      background-size: 34px 34px;
-      mask-image: radial-gradient(circle at center, black 40%, transparent 85%);
-      opacity: 0.45;
-    }
-    a { color: inherit; }
-    .shell {
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 0 24px 72px;
-      position: relative;
-      z-index: 1;
-    }
-    nav {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      backdrop-filter: blur(16px);
-      background: rgba(7, 17, 31, 0.78);
-      border-bottom: 1px solid var(--border);
-    }
-    .nav-inner {
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 0 24px;
-      height: 78px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-    }
-    .nav-logo {
-      font-family: var(--sans);
-      font-size: 1.45rem;
-      font-weight: 700;
-      text-decoration: none;
-      letter-spacing: -0.05em;
-      color: var(--text);
-      line-height: 1;
-      text-shadow: 0 0 18px rgba(127, 141, 255, 0.24);
-      white-space: nowrap;
-    }
-    .nav-logo span { color: var(--cyan); }
-    @media (min-width: 900px) {
-      .nav-logo { font-size: 1.75rem; }
-    }
-    .nav-links {
-      display: flex;
-      list-style: none;
-      gap: 1.15rem;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-    }
-    .nav-links a {
-      text-decoration: none;
-      color: var(--muted);
-      font-size: 12px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      transition: color 0.2s ease, transform 0.2s ease;
-    }
-    .nav-links a:hover {
-      color: var(--text);
-      transform: translateY(-1px);
-    }
-    .hero {
-      display: grid;
-      grid-template-columns: 1.35fr 0.95fr;
-      gap: 24px;
-      padding: 56px 0 20px;
-      align-items: stretch;
-    }
-    .hero-main,
-    .hero-side,
-    .case-study-card,
-    .project-card,
-    .skill-group,
-    .contact-panel {
-      background: var(--panel);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      box-shadow: var(--glow);
-      backdrop-filter: blur(10px);
-    }
-    .hero-main {
-      padding: 34px;
-      position: relative;
-      overflow: hidden;
-    }
-    .hero-main::after {
-      content: "";
-      position: absolute;
-      width: 320px;
-      height: 320px;
-      top: -76px;
-      right: -90px;
-      background: radial-gradient(circle, rgba(127, 141, 255, 0.22), transparent 70%);
-      pointer-events: none;
-    }
-    .hero-label,
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.55rem;
-      padding: 8px 12px;
-      border-radius: 999px;
-      background: rgba(105, 227, 255, 0.08);
-      border: 1px solid rgba(105, 227, 255, 0.18);
-      color: var(--cyan);
-      font-size: 11px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      margin-bottom: 18px;
-    }
-    .hero-label::before,
-    .eyebrow::before {
-      content: "";
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--lime);
-      box-shadow: 0 0 16px rgba(144, 255, 184, 0.8);
-    }
-    h1 {
-      font-family: var(--sans);
-      font-size: clamp(2.95rem, 6vw, 5.75rem);
-      line-height: 0.95;
-      letter-spacing: -0.065em;
-      margin-bottom: 18px;
-      max-width: 10ch;
-    }
-    h1 .gradient {
-      background: linear-gradient(90deg, var(--cyan), var(--blue), var(--violet));
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-    .hero-bio {
-      max-width: 64ch;
-      font-size: 15px;
-      color: var(--muted);
-      line-height: 1.9;
-      margin-bottom: 22px;
-    }
-    .hero-points {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 24px;
-    }
-    .pill {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      padding: 9px 12px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid var(--border);
-      color: var(--text);
-    }
-    .hero-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.45rem;
-      padding: 12px 16px;
-      border-radius: 12px;
-      font-size: 12px;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      text-decoration: none;
-      transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
-      border: 1px solid var(--border-strong);
-    }
-    .btn:hover { transform: translateY(-2px); }
-    .btn-primary {
-      background: linear-gradient(90deg, var(--cyan), var(--blue));
-      color: #08101f;
-      font-weight: 700;
-      border: none;
-    }
-    .btn-secondary {
-      background: rgba(255,255,255,0.03);
-      color: var(--text);
-    }
-    .hero-side {
-      padding: 22px;
-      display: grid;
-      gap: 14px;
-      align-content: start;
-    }
-    .stat-card {
-      padding: 16px;
-      border-radius: 16px;
-      background: rgba(255,255,255,0.03);
-      border: 1px solid var(--border);
-    }
-    .stat-label {
-      font-size: 11px;
-      color: var(--faint);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      margin-bottom: 6px;
-    }
-    .stat-value {
-      font-family: var(--sans);
-      font-size: 1.5rem;
-      font-weight: 700;
-      letter-spacing: -0.04em;
-      margin-bottom: 6px;
-      line-height: 1.05;
-    }
-    .stat-copy {
-      color: var(--muted);
-      font-size: 12.5px;
-      line-height: 1.7;
-    }
-    .metrics-band {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 14px;
-      margin-top: 8px;
-      margin-bottom: 22px;
-    }
-    .metric-tile {
-      background: linear-gradient(180deg, rgba(127, 141, 255, 0.08), rgba(255,255,255,0.03));
-      border: 1px solid var(--border);
-      border-radius: var(--radius-sm);
-      padding: 16px;
-      min-height: 118px;
-    }
-    .metric-number {
-      font-family: var(--sans);
-      font-size: 2rem;
-      font-weight: 700;
-      line-height: 1;
-      letter-spacing: -0.05em;
-      margin-bottom: 8px;
-      color: var(--text);
-    }
-    .metric-label {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.09em;
-      color: var(--cyan);
-      margin-bottom: 6px;
-    }
-    .metric-copy {
-      color: var(--muted);
-      font-size: 12px;
-      line-height: 1.65;
-    }
-    .section {
-      padding: 20px 0 24px;
-    }
-    .section-header {
-      display: flex;
-      align-items: end;
-      justify-content: space-between;
-      gap: 16px;
-      margin-bottom: 18px;
-    }
-    .section-kicker {
-      font-size: 11px;
-      color: var(--cyan);
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      margin-bottom: 6px;
-    }
-    h2 {
-      font-family: var(--sans);
-      font-size: clamp(1.7rem, 3vw, 2.5rem);
-      letter-spacing: -0.04em;
-      line-height: 1;
-    }
-    .section-desc {
-      color: var(--muted);
-      max-width: 62ch;
-      font-size: 13px;
-      line-height: 1.75;
-    }
-    .case-study-card {
-      padding: 28px;
-      background:
-        linear-gradient(180deg, rgba(127, 141, 255, 0.08), rgba(255,255,255,0.025)),
-        var(--panel-strong);
-      overflow: hidden;
-      position: relative;
-    }
-    .case-study-card::after {
-      content: "";
-      position: absolute;
-      inset: auto -120px -120px auto;
-      width: 280px;
-      height: 280px;
-      background: radial-gradient(circle, rgba(105, 227, 255, 0.12), transparent 70%);
-      pointer-events: none;
-    }
-    .case-top {
-      display: flex;
-      justify-content: space-between;
-      gap: 16px;
-      align-items: flex-start;
-      margin-bottom: 14px;
-      position: relative;
-      z-index: 1;
-    }
-    .case-title {
-      font-family: var(--sans);
-      font-size: clamp(1.45rem, 2.6vw, 2.2rem);
-      font-weight: 700;
-      letter-spacing: -0.04em;
-    }
-    .case-subtitle {
-      color: var(--muted);
-      font-size: 13px;
-      line-height: 1.7;
-      max-width: 72ch;
-      margin-bottom: 18px;
-      position: relative;
-      z-index: 1;
-    }
-    .case-grid {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 18px;
-      position: relative;
-      z-index: 1;
-    }
-    .case-panel {
-      border: 1px solid var(--border);
-      background: rgba(255,255,255,0.03);
-      border-radius: 18px;
-      padding: 18px;
-    }
-    .panel-label {
-      color: var(--cyan);
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      margin-bottom: 10px;
-    }
-    .case-list {
-      list-style: none;
-      display: grid;
-      gap: 10px;
-    }
-    .case-list li {
-      color: var(--text);
-      font-size: 12.75px;
-      line-height: 1.75;
-      padding-left: 16px;
-      position: relative;
-    }
-    .case-list li::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 0.72em;
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: linear-gradient(180deg, var(--cyan), var(--blue));
-      box-shadow: 0 0 10px rgba(105, 227, 255, 0.48);
-    }
-    .impact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-    }
-    .impact-tile {
-      border-radius: 14px;
-      padding: 14px;
-      background: rgba(255,255,255,0.03);
-      border: 1px solid var(--border);
-    }
-    .impact-value {
-      font-family: var(--sans);
-      font-size: 1.5rem;
-      font-weight: 700;
-      line-height: 1;
-      letter-spacing: -0.05em;
-      margin-bottom: 6px;
-      color: var(--lime);
-    }
-    .impact-label {
-      color: var(--text);
-      font-size: 12px;
-      margin-bottom: 4px;
-    }
-    .impact-copy {
-      color: var(--muted);
-      font-size: 11.5px;
-      line-height: 1.65;
-    }
-    .projects-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 18px;
-    }
-    .project-card {
-      padding: 24px;
-      position: relative;
-      overflow: hidden;
-      transition: transform 0.22s ease, border-color 0.22s ease, background 0.22s ease;
-    }
-    .project-card:hover {
-      transform: translateY(-4px);
-      border-color: rgba(105, 227, 255, 0.28);
-      background: rgba(20, 31, 58, 0.95);
-    }
-    .project-card.featured {
-      grid-column: span 2;
-      background:
-        linear-gradient(180deg, rgba(127, 141, 255, 0.08), rgba(255,255,255,0.03)),
-        var(--panel);
-    }
-    .featured-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 10px;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--lime);
-      padding: 7px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(144, 255, 184, 0.22);
-      background: rgba(144, 255, 184, 0.07);
-      margin-bottom: 14px;
-    }
-    .featured-badge::before {
-      content: "✦";
-      font-size: 10px;
-    }
-    .project-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 16px;
-      margin-bottom: 10px;
-    }
-    .project-name {
-      font-family: var(--sans);
-      font-size: 1.35rem;
-      font-weight: 700;
-      letter-spacing: -0.04em;
-    }
-    .project-link {
-      font-size: 11px;
-      color: var(--cyan);
-      text-decoration: none;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      white-space: nowrap;
-    }
-    .project-desc {
-      color: var(--muted);
-      font-size: 13.5px;
-      line-height: 1.8;
-      margin-bottom: 16px;
-      max-width: 68ch;
-    }
-    .project-highlights {
-      list-style: none;
-      display: grid;
-      gap: 10px;
-      margin-bottom: 18px;
-    }
-    .project-highlights li {
-      color: var(--text);
-      font-size: 12.75px;
-      line-height: 1.7;
-      padding-left: 16px;
-      position: relative;
-    }
-    .project-highlights li::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 0.7em;
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: linear-gradient(180deg, var(--cyan), var(--blue));
-      box-shadow: 0 0 10px rgba(105, 227, 255, 0.5);
-    }
-    .project-tags,
-    .case-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 16px;
-    }
-    .tag {
-      font-size: 10.5px;
-      letter-spacing: 0.07em;
-      text-transform: uppercase;
-      padding: 7px 10px;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      background: rgba(255,255,255,0.03);
-      color: var(--muted);
-    }
-    .tag-accent {
-      color: var(--cyan);
-      border-color: rgba(105, 227, 255, 0.2);
-      background: rgba(105, 227, 255, 0.08);
-    }
-    .tag-violet {
-      color: #d9bcff;
-      border-color: rgba(183, 143, 255, 0.24);
-      background: rgba(183, 143, 255, 0.09);
-    }
-    .tag-lime {
-      color: var(--lime);
-      border-color: rgba(144, 255, 184, 0.2);
-      background: rgba(144, 255, 184, 0.08);
-    }
-    .tag-amber {
-      color: var(--amber);
-      border-color: rgba(255, 207, 123, 0.24);
-      background: rgba(255, 207, 123, 0.08);
-    }
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 18px;
-    }
-    .skill-group {
-      padding: 22px;
-    }
-    .skill-group-label {
-      color: var(--cyan);
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      margin-bottom: 12px;
-    }
-    .skill-list {
-      list-style: none;
-      display: grid;
-      gap: 8px;
-    }
-    .skill-list li {
-      color: var(--muted);
-      font-size: 13px;
-    }
-    .contact-panel {
-      padding: 24px;
-    }
-    .contact-copy {
-      color: var(--muted);
-      font-size: 14px;
-      max-width: 60ch;
-      line-height: 1.9;
-      margin-bottom: 18px;
-    }
-    .contact-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-    .contact-item {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.55rem;
-      padding: 12px 14px;
-      border-radius: 12px;
-      border: 1px solid var(--border);
-      background: rgba(255,255,255,0.03);
-      text-decoration: none;
-      color: var(--text);
-      transition: transform 0.2s ease, border-color 0.2s ease;
-    }
-    .contact-item:hover {
-      transform: translateY(-2px);
-      border-color: rgba(105, 227, 255, 0.24);
-    }
-    .contact-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: linear-gradient(180deg, var(--cyan), var(--blue));
-      box-shadow: 0 0 12px rgba(105, 227, 255, 0.55);
-      flex-shrink: 0;
-    }
-    footer {
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 14px 24px 36px;
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      color: var(--faint);
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.07em;
-    }
-    .status-dot {
-      display: inline-block;
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: var(--lime);
-      box-shadow: 0 0 12px rgba(144,255,184,0.7);
-      margin-right: 8px;
-      animation: pulse 1.8s ease-in-out infinite;
-    }
-    @keyframes pulse {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.45; transform: scale(0.9); }
-    }
-    @media (max-width: 1024px) {
-      .hero,
-      .case-grid,
-      .skills-grid,
-      .metrics-band,
-      .projects-grid {
-        grid-template-columns: 1fr;
-      }
-      .project-card.featured {
-        grid-column: span 1;
-      }
-      .impact-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-    @media (max-width: 700px) {
-      .nav-links { display: none; }
-      .shell { padding: 0 16px 48px; }
-      .nav-inner, footer { padding-left: 16px; padding-right: 16px; }
-      .hero-main,
-      .hero-side,
-      .case-study-card,
-      .project-card,
-      .skill-group,
-      .contact-panel { padding: 20px; }
-      .impact-grid { grid-template-columns: 1fr; }
-      footer {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-    }
-  </style>
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    .page {
+      padding: 0;
+    }
+  }
+
+  /* === PAGE BREAK CONTROL === */
+  .avoid-break {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+</style>
 </head>
 <body>
-  <nav>
-    <div class="nav-inner">
-      <a href="#" class="nav-logo">Roman <span>Emmons</span></a>
-      <ul class="nav-links">
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#skills">Stack</a></li>
-        <li><a href="#contact">Contact</a></li>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header avoid-break">
+    <h1>Roman Emmons</h1>
+    <div class="header-gradient"></div>
+    <div class="contact-row">
+      <span>415-439-0623</span>
+      <span class="separator">|</span>
+      <span>roman.emmons@gmail.com</span>
+      <span class="separator">|</span>
+      <a href="https://linkedin.com/in/romanemmons">linkedin.com/in/romanemmons</a>
+      <span class="separator">|</span>
+      <a href="https://romanemmons.github.io/">romanemmons.github.io</a>
+      <span class="separator">|</span>
+      <span>San Francisco, CA</span>
+    </div>
+  </div>
+
+  <!-- PROFESSIONAL SUMMARY -->
+  <div class="section avoid-break">
+    <div class="section-title">Professional Summary</div>
+    <div class="summary-text">
+      Senior Backend Engineer with 6+ years building and operating Node.js/TypeScript systems at production scale. Deep experience in distributed backend architectures, event-driven microservices, and e-commerce platforms processing millions of consumer transactions. Consistent track record of end-to-end ownership &mdash; from 0-to-1 product development through production reliability &mdash; at a large-scale consumer platform. Led 10+ engineers across cross-functional teams, providing technical guidance and code reviews that raised overall team quality and delivery velocity.
+    </div>
+  </div>
+
+  <!-- CORE COMPETENCIES -->
+  <div class="section avoid-break">
+    <div class="section-title">Core Competencies</div>
+    <div class="competencies-grid">
+      <span class="competency-tag">Node.js &amp; TypeScript</span>
+      <span class="competency-tag">Distributed Systems</span>
+      <span class="competency-tag">E-commerce Platforms</span>
+      <span class="competency-tag">Backend APIs at Scale</span>
+      <span class="competency-tag">MongoDB &amp; DynamoDB</span>
+      <span class="competency-tag">AWS Serverless Architecture</span>
+      <span class="competency-tag">Production Reliability</span>
+      <span class="competency-tag">End-to-End Ownership</span>
+    </div>
+  </div>
+
+  <!-- WORK EXPERIENCE -->
+  <div class="section">
+    <div class="section-title">Work Experience</div>
+
+    <div class="job">
+      <div class="job-header">
+        <span class="job-company">Large-Scale Retail Platform</span>
+        <span class="job-period">2021 &ndash; Present</span>
+      </div>
+      <div class="job-role">Senior Software Engineer</div>
+      <ul>
+        <li>Built and operated scalable event-driven backend services on AWS (Lambda, SNS, SQS, ECS, RDS), processing millions of business-critical consumer transactions in production.</li>
+        <li>Owned end-to-end aggregation and cleansing of <strong>11M+ customer records</strong> in DynamoDB, improving data reliability for downstream consumer-facing and CRM systems.</li>
+        <li>Led <strong>10+ engineers</strong> across cross-functional teams, delivering code reviews and technical guidance that raised overall code quality and shipping velocity.</li>
+        <li>Coordinated full replatforming from Adobe Magento to Shopify &mdash; partnering with Product, marketing, and operations from conception through production launch.</li>
+        <li>Delivered 0-to-1 dropship integration, connecting modern Node.js/TypeScript services to legacy commerce systems with zero customer-facing disruption.</li>
+        <li>Built resiliency scripts during a live ransomware incident to maintain uninterrupted transaction processing &mdash; hands-on production ownership under pressure.</li>
+        <li>Used Cursor and GitHub Copilot to reduce boilerplate and accelerate feature delivery across the team.</li>
       </ul>
     </div>
-  </nav>
-  <div class="shell">
-    <section class="hero">
-      <div class="hero-main">
-        <p class="hero-label">Backend / Platform Engineer · AI-enabled builder · San Francisco</p>
-        <h1>Backend systems for an <span class="gradient">Agentic</span> world.</h1>
-        <p class="hero-bio">
-          I build production backends, event-driven services, and integration-heavy systems that support real business operations at scale. My work spans AWS infrastructure, data pipelines, legacy-to-modern platform integrations, and AI-assisted engineering workflows designed to increase speed, reliability, and leverage.
-        </p>
-        <div class="hero-points">
-          <span class="pill">Node.js / TypeScript</span>
-          <span class="pill">AWS & distributed systems</span>
-          <span class="pill">Enterprise integrations</span>
-          <span class="pill">AI-assisted dev workflows</span>
-        </div>
-        <div class="hero-links">
-          <a href="https://github.com/RomanEmmons" class="btn btn-primary" target="_blank">GitHub ↗</a>
-          <a href="https://www.linkedin.com/in/roman-emmons/" class="btn btn-secondary" target="_blank">LinkedIn ↗</a>
-          <a href="#experience" class="btn btn-secondary">View case study</a>
-        </div>
+
+    <div class="job">
+      <div class="job-header">
+        <span class="job-company">Plena Data</span>
+        <span class="job-period">2020 &ndash; 2021</span>
       </div>
-      <aside class="hero-side">
-        <div class="stat-card">
-          <div class="stat-label">What I optimize for</div>
-          <div class="stat-value">Velocity × Reliability</div>
-          <p class="stat-copy">I like systems that move fast without becoming fragile: clean contracts, sane automation, resilient services, and strong production behavior.</p>
-        </div>
-        <div class="stat-card">
-          <div class="stat-label">Current focus</div>
-          <div class="stat-value">Enterprise backend leverage</div>
-          <p class="stat-copy">Building systems that make complex operations feel simple: integrations, messaging flows, data movement, and tooling that reduces manual work.</p>
-        </div>
-        <div class="stat-card">
-          <div class="stat-label">Best-fit roles</div>
-          <div class="stat-value">Backend · Platform · Integrations</div>
-          <p class="stat-copy">Especially interested in developer tools, platform engineering, workflow systems, fintech infrastructure, and automation-heavy products.</p>
-        </div>
-      </aside>
-    </section>
-    <section class="section" aria-label="Key metrics">
-      <div class="metrics-band">
-        <div class="metric-tile">
-          <div class="metric-number">11M+</div>
-          <div class="metric-label">Customer records</div>
-          <div class="metric-copy">Led aggregation and cleansing efforts to improve reliability and trust in production data.</div>
-        </div>
-        <div class="metric-tile">
-          <div class="metric-number">10+</div>
-          <div class="metric-label">Engineers led</div>
-          <div class="metric-copy">Led an engineering team across new development, integrations, and production support.</div>
-        </div>
-        <div class="metric-tile">
-          <div class="metric-number">24/7</div>
-          <div class="metric-label">Operational mindset</div>
-          <div class="metric-copy">Built resiliency scripts and kept transaction processing moving during a ransomware incident.</div>
-        </div>
-        <div class="metric-tile">
-          <div class="metric-number">AWS</div>
-          <div class="metric-label">Core runtime</div>
-          <div class="metric-copy">Designed and deployed event-driven services using Lambda, SNS, SQS, ECS, and RDS.</div>
-        </div>
+      <div class="job-role">Software Engineer</div>
+      <ul>
+        <li>Built Node.js/TypeScript backend systems to automate manual financial and operational workflows for enterprise clients.</li>
+        <li>Integrated automation pipelines with Acumatica and NetSuite via REST APIs, owning design, implementation, and production deployment.</li>
+        <li>Implemented document-processing pipelines using Google Cloud Vision OCR to extract structured data from PDFs at scale.</li>
+        <li>Automated government tax data submission pipelines, ensuring accuracy and compliance across client financial workflows.</li>
+        <li>Developed reporting backends for monthly commission tracking and distribution.</li>
+        <li>Onboarded offshore engineers and ran partner workshops to drive platform adoption across client organizations.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-header">
+        <span class="job-company">CacheFlow</span>
+        <span class="job-period">2019 &ndash; 2020</span>
       </div>
-    </section>
-    <section id="experience" class="section">
-      <div class="section-header">
-        <div>
-          <p class="section-kicker">Case study</p>
-          <h2>David’s Bridal — enterprise commerce systems at scale</h2>
-        </div>
-        <p class="section-desc">
-          A snapshot of the kind of production engineering I do day to day: distributed services, legacy modernization, high-volume data workflows, and operational reliability under pressure.
-        </p>
-      </div>
-      <article class="case-study-card">
-        <div class="case-top">
-          <div>
-            <p class="eyebrow">Senior Software Engineer · 2021–Present</p>
-            <div class="case-title">Modernizing business-critical systems inside a large retail platform</div>
-          </div>
-        </div>
-        <p class="case-subtitle">
-          At David’s Bridal, I work on enterprise backend systems powering commerce, customer data, operational integrations, and production support. The work spans event-driven AWS services, legacy system modernization, dropship and platform integrations, and resilient engineering in environments where downtime has direct business impact.
-        </p>
-        <div class="case-grid">
-          <div class="case-panel">
-            <div class="panel-label">What I owned</div>
-            <ul class="case-list">
-              <li>Designed and deployed scalable, event-driven services on AWS using Lambda, SNS, SQS, ECS, and RDS.</li>
-              <li>Built and maintained backend services and integrations connecting modern applications with legacy commerce systems.</li>
-              <li>Coordinated a cross-functional replatforming effort from Adobe Magento to Shopify.</li>
-              <li>Led a team of 10+ engineers across feature development, systems integration, and production support.</li>
-              <li>Used AI-assisted tools like Cursor and GitHub Copilot to reduce boilerplate and speed up delivery.</li>
-            </ul>
-            <div class="case-tags">
-              <span class="tag tag-accent">AWS Lambda</span>
-              <span class="tag tag-accent">SNS / SQS</span>
-              <span class="tag tag-violet">ECS / RDS</span>
-              <span class="tag tag-violet">Shopify migration</span>
-              <span class="tag tag-lime">Production support</span>
-              <span class="tag tag-amber">AI-assisted delivery</span>
-            </div>
-          </div>
-          <div class="case-panel">
-            <div class="panel-label">Impact</div>
-            <div class="impact-grid">
-              <div class="impact-tile">
-                <div class="impact-value">11M+</div>
-                <div class="impact-label">Records stabilized</div>
-                <div class="impact-copy">Led aggregation and cleansing of customer data in DynamoDB to improve data quality and system reliability.</div>
-              </div>
-              <div class="impact-tile">
-                <div class="impact-value">0 stop</div>
-                <div class="impact-label">Transaction continuity</div>
-                <div class="impact-copy">Built resiliency scripts during a ransomware incident to keep critical transaction flows running.</div>
-              </div>
-              <div class="impact-tile">
-                <div class="impact-value">Legacy → Modern</div>
-                <div class="impact-label">Platform transition</div>
-                <div class="impact-copy">Helped bridge old commerce infrastructure with newer services during a major replatforming initiative.</div>
-              </div>
-              <div class="impact-tile">
-                <div class="impact-value">10+ eng</div>
-                <div class="impact-label">Engineering leadership</div>
-                <div class="impact-copy">Led across delivery, production support, and integrations in a high-volume business environment.</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </article>
-    </section>
-    <section id="projects" class="section">
-      <div class="section-header">
-        <div>
-          <p class="section-kicker">Selected projects</p>
-          <h2>Automation, APIs, and developer-minded systems</h2>
-        </div>
-        <p class="section-desc">
-          Side projects and product builds that show how I think about ingestion pipelines, API design, structured backend architecture, and practical engineering leverage.
-        </p>
-      </div>
-      <div class="projects-grid">
-        <article class="project-card featured">
-          <div class="featured-badge">Flagship build</div>
-          <div class="project-top">
-            <span class="project-name">Cacheflow</span>
-            <a href="https://github.com/RomanEmmons/Cacheflow" class="project-link" target="_blank">View repo ↗</a>
-          </div>
-          <p class="project-desc">
-            An automation platform for accounting workflows that turns messy financial inputs into structured ERP-ready data. Users upload spreadsheets and PDFs, and the system parses, transforms, validates, and routes that information into downstream business systems.
-          </p>
-          <ul class="project-highlights">
-            <li>Built a multi-format ingestion pipeline for Excel and PDF documents with validation and transformation layers before records reach the ERP.</li>
-            <li>Designed the backend in TypeScript with a focus on correctness, maintainability, and safe handoffs between parsing, normalization, and delivery.</li>
-            <li>Deployed to AWS with QA and production environments, staged release workflows, and production process management for uptime and recovery.</li>
-            <li>Strong example of AI-adjacent systems thinking: turning noisy real-world documents into structured, usable operational data.</li>
-            <li>Developed collaboratively in a Yarn monorepo across hundreds of commits, showing long-horizon iteration and team delivery.</li>
-          </ul>
-          <div class="project-tags">
-            <span class="tag tag-accent">TypeScript</span>
-            <span class="tag tag-accent">File pipelines</span>
-            <span class="tag tag-accent">ERP integration</span>
-            <span class="tag tag-violet">AWS deployment</span>
-            <span class="tag tag-violet">Monorepo</span>
-            <span class="tag tag-lime">Automation systems</span>
-            <span class="tag">Excel / PDF parsing</span>
-          </div>
-        </article>
-        <article class="project-card">
-          <div class="project-top">
-            <span class="project-name">RepoRetriever</span>
-            <a href="https://github.com/RomanEmmons/RepoRetriever" class="project-link" target="_blank">View repo ↗</a>
-          </div>
-          <p class="project-desc">
-            A GitHub-powered retrieval tool that fetches, ranks, caches, and serves repository data without unnecessary re-requests. Lightweight, API-driven, and built with performance-conscious backend structure.
-          </p>
-          <ul class="project-highlights">
-            <li>Integrated external APIs with structured data transformation and persistence.</li>
-            <li>Added a MongoDB-backed caching layer to reduce redundant lookups.</li>
-            <li>Built around clean separation of concerns across client, server, and persistence layers.</li>
-          </ul>
-          <div class="project-tags">
-            <span class="tag tag-accent">Node.js</span>
-            <span class="tag tag-accent">MongoDB</span>
-            <span class="tag tag-violet">GitHub API</span>
-            <span class="tag">Caching</span>
-            <span class="tag">REST</span>
-          </div>
-        </article>
-        <article class="project-card">
-          <div class="project-top">
-            <span class="project-name">Chonky Cat</span>
-            <a href="https://github.com/RomanEmmons/chonky-cat" class="project-link" target="_blank">View repo ↗</a>
-          </div>
-          <p class="project-desc">
-            A location-based adoption app that highlights end-to-end product thinking: scraped data, backend organization, filtering logic, and a React frontend layered over a solid service foundation.
-          </p>
-          <ul class="project-highlights">
-            <li>Architected a structured MVC backend with clean controller and data boundaries.</li>
-            <li>Built a custom scrape-and-normalize pipeline for external data ingestion.</li>
-            <li>Added location-aware filtering and collaborative workflow through PR-based development.</li>
-          </ul>
-          <div class="project-tags">
-            <span class="tag tag-accent">Express</span>
-            <span class="tag tag-accent">MongoDB</span>
-            <span class="tag tag-violet">React</span>
-            <span class="tag">Web scraping</span>
-            <span class="tag">MVC</span>
-          </div>
-        </article>
-        <article class="project-card">
-          <div class="project-top">
-            <span class="project-name">Molly Souza Portfolio</span>
-            <a href="https://github.com/RomanEmmons/Molly-Souza-Artist-Portfolio" class="project-link" target="_blank">View repo ↗</a>
-          </div>
-          <p class="project-desc">
-            A real client build delivered end-to-end, from requirements to launch. Useful proof that I can ship polished software for actual users, not just internal demos or portfolio exercises.
-          </p>
-          <ul class="project-highlights">
-            <li>Managed requirements, implementation, iteration, and deployment independently.</li>
-            <li>Balanced client needs, design decisions, and practical delivery constraints.</li>
-          </ul>
-          <div class="project-tags">
-            <span class="tag tag-accent">JavaScript</span>
-            <span class="tag tag-lime">Client delivery</span>
-            <span class="tag">Production work</span>
-          </div>
-        </article>
-      </div>
-    </section>
-    <section id="skills" class="section">
-      <div class="section-header">
-        <div>
-          <p class="section-kicker">Technical stack</p>
-          <h2>Built for modern backend and devtools-adjacent engineering</h2>
-        </div>
-        <p class="section-desc">
-          A practical toolkit for event-driven services, API design, integrations, data movement, and fast iteration in production environments.
-        </p>
-      </div>
-      <div class="skills-grid">
-        <div class="skill-group">
-          <p class="skill-group-label">Languages</p>
-          <ul class="skill-list">
-            <li>TypeScript</li>
-            <li>Node.js / JavaScript</li>
-            <li>SQL</li>
-            <li>HTML / CSS</li>
-            <li>Express</li>
-          </ul>
-        </div>
-        <div class="skill-group">
-          <p class="skill-group-label">Cloud & systems</p>
-          <ul class="skill-list">
-            <li>AWS Lambda</li>
-            <li>ECS / EC2 / Fargate</li>
-            <li>SNS / SQS</li>
-            <li>API Gateway</li>
-            <li>Distributed services</li>
-          </ul>
-        </div>
-        <div class="skill-group">
-          <p class="skill-group-label">Data & storage</p>
-          <ul class="skill-list">
-            <li>DynamoDB</li>
-            <li>MongoDB</li>
-            <li>Redis</li>
-            <li>Scalable data pipelines</li>
-            <li>File parsing / OCR workflows</li>
-          </ul>
-        </div>
-        <div class="skill-group">
-          <p class="skill-group-label">Workflow & leverage</p>
-          <ul class="skill-list">
-            <li>CI/CD pipelines</li>
-            <li>Docker / Jenkins</li>
-            <li>Cursor / Copilot</li>
-            <li>Code review collaboration</li>
-            <li>System modernization</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-    <section id="contact" class="section">
-      <div class="section-header">
-        <div>
-          <p class="section-kicker">Contact</p>
-          <h2>Open to backend, platform, and integrations roles</h2>
-        </div>
-      </div>
-      <div class="contact-panel">
-        <p class="contact-copy">
-          I’m especially interested in teams building developer tools, platform infrastructure, backend APIs, distributed workflows, and automation-heavy systems where engineering leverage really matters. If that sounds like your world, I’d love to connect.
-        </p>
-        <div class="contact-row">
-          <a href="mailto:roman.emmons@gmail.com" class="contact-item">
-            <span class="contact-dot"></span>
-            roman.emmons@gmail.com
-          </a>
-          <a href="https://github.com/RomanEmmons" class="contact-item" target="_blank">
-            <span class="contact-dot"></span>
-            github.com/RomanEmmons
-          </a>
-          <a href="https://www.linkedin.com/in/roman-emmons/" class="contact-item" target="_blank">
-            <span class="contact-dot"></span>
-            linkedin.com/in/roman-emmons
-          </a>
-        </div>
-      </div>
-    </section>
+      <div class="job-role">Full-Stack Engineer</div>
+      <ul>
+        <li>Designed and implemented a SQL database supporting a consumer gaming application with ~4K active users.</li>
+        <li>Developed custom web form backends for a legal services client, handling user data end to end.</li>
+      </ul>
+    </div>
+
   </div>
-  <footer>
-    <span>Roman Emmons · Backend / Platform Engineer</span>
-    <span><span class="status-dot"></span>Open to opportunities</span>
-  </footer>
+
+  <!-- KEY PROJECTS -->
+  <div class="section">
+    <div class="section-title">Key Projects</div>
+
+    <div class="project">
+      <div class="project-header">
+        <span class="project-title">Customer Data Pipeline &mdash; 11M Record Reliability Overhaul</span>
+        <span class="project-badge">Production Scale</span>
+      </div>
+      <div class="project-desc">Aggregated and cleansed 11M+ customer records in DynamoDB at a large-scale consumer platform. Built ETL pipelines that improved downstream data reliability and unblocked CRM and marketing system integrations.</div>
+      <div class="project-tech">TypeScript &middot; Node.js &middot; DynamoDB &middot; AWS Lambda</div>
+    </div>
+
+    <div class="project">
+      <div class="project-header">
+        <span class="project-title">E-commerce Replatforming &mdash; Magento to Shopify</span>
+        <span class="project-badge">0-to-1</span>
+      </div>
+      <div class="project-desc">Led cross-functional migration of a high-traffic consumer e-commerce platform from Adobe Magento to Shopify. Built backend integration layers to maintain data continuity and zero customer downtime throughout the transition.</div>
+      <div class="project-tech">TypeScript &middot; Node.js &middot; REST APIs &middot; Shopify</div>
+    </div>
+
+    <div class="project">
+      <div class="project-header">
+        <span class="project-title">Ransomware Incident Response &mdash; Live Resiliency Engineering</span>
+        <span class="project-badge">Reliability</span>
+      </div>
+      <div class="project-desc">Designed and deployed resiliency scripts during an active ransomware incident to keep consumer transaction processing uninterrupted. Maintained business continuity while coordinating with security and operations teams in real time.</div>
+      <div class="project-tech">Node.js &middot; AWS &middot; Event-driven architecture</div>
+    </div>
+
+  </div>
+
+  <!-- EDUCATION -->
+  <div class="section avoid-break">
+    <div class="section-title">Education</div>
+
+    <div class="edu-item">
+      <div class="edu-header">
+        <span class="edu-org">Hack Reactor @ Galvanize</span>
+        <span class="edu-year">San Francisco, CA</span>
+      </div>
+      <div class="edu-desc">Advanced Software Engineering Immersive</div>
+    </div>
+
+    <div class="edu-item">
+      <div class="edu-header">
+        <span class="edu-org">Gwinnett Technical College</span>
+        <span class="edu-year">Duluth, GA</span>
+      </div>
+      <div class="edu-desc">Diploma, Hospitality</div>
+    </div>
+
+  </div>
+
+  <!-- SKILLS -->
+  <div class="section avoid-break">
+    <div class="section-title">Skills</div>
+    <table class="skills-table">
+      <tr>
+        <td class="skill-category">Languages</td>
+        <td>TypeScript, Node.js, JavaScript, React, HTML5, CSS3</td>
+      </tr>
+      <tr>
+        <td class="skill-category">Backend &amp; APIs</td>
+        <td>Express, REST APIs, distributed messaging (SQS, SNS), event-driven architecture</td>
+      </tr>
+      <tr>
+        <td class="skill-category">Databases</td>
+        <td>MongoDB, DynamoDB, SQL, Redis</td>
+      </tr>
+      <tr>
+        <td class="skill-category">Cloud</td>
+        <td>AWS (Lambda, ECS, EC2, Fargate, API Gateway, SQS, SNS, RDS), GCP</td>
+      </tr>
+      <tr>
+        <td class="skill-category">DevOps</td>
+        <td>Docker, Jenkins, CI/CD pipelines</td>
+      </tr>
+      <tr>
+        <td class="skill-category">AI &amp; Tooling</td>
+        <td>Cursor, GitHub Copilot, MCP, Puppeteer, Google Cloud Vision OCR</td>
+      </tr>
+      <tr>
+        <td class="skill-category">Testing</td>
+        <td>Jest, Mocha, Chai</td>
+      </tr>
+    </table>
+  </div>
+
+</div>
 </body>
 </html>
